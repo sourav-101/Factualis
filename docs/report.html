@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Factualis: Grounded Compliance Answers from a Local 3B Model</title>
+<style>
+  @page {
+    size: A4; margin: 18mm 18mm 17mm 18mm;
+    @top-left { content: "Factualis"; font-family: "Times New Roman", Times, serif; font-variant: small-caps; font-size: 9pt; color: #000; vertical-align: bottom; padding-bottom: 2.5mm; border-bottom: .5pt solid #000; }
+    @top-right { content: "Grounded Compliance Answers from a Local 3B Model"; font-family: "Times New Roman", Times, serif; font-style: italic; font-size: 8.5pt; color: #000; vertical-align: bottom; padding-bottom: 2.5mm; border-bottom: .5pt solid #000; }
+    @bottom-center { content: counter(page); font-family: "Times New Roman", Times, serif; font-size: 9pt; color: #000; }
+  }
+  @page :first { @top-left { content: none; border: none; } @top-right { content: none; border: none; } }
+  * { box-sizing: border-box; }
+  html, body { background: #fff; }
+  body { font-family: "Times New Roman", Times, serif; color: #000; font-size: 10.5pt; line-height: 1.42; margin: 0; text-align: justify; hyphens: auto; }
+
+  .titleblock { border-top: 2pt solid #000; border-bottom: .6pt solid #000; padding: 5mm 0 4mm; margin-bottom: 5mm; text-align: center; }
+  .titleblock .venue { font-variant: small-caps; letter-spacing: .06em; font-size: 9.5pt; margin-bottom: 2.5mm; }
+  .titleblock h1 { font-size: 19pt; font-weight: 700; margin: 0 0 2.5mm; line-height: 1.22; }
+  .titleblock .team { font-size: 12pt; font-weight: 700; margin-bottom: 1mm; }
+  .titleblock .sub { font-size: 10pt; font-style: italic; margin-bottom: 1mm; }
+  .titleblock .code { font-size: 9.5pt; }
+
+  .abstract { margin: 0 10mm 3mm; font-size: 10pt; line-height: 1.4; }
+  .abstract .h { display: block; text-align: center; font-weight: 700; font-variant: small-caps; letter-spacing: .05em; font-size: 10.5pt; margin-bottom: 1.5mm; }
+  .keywords { margin: 0 10mm 5mm; font-size: 9.5pt; text-align: left; }
+
+  h2 { font-size: 12pt; font-weight: 700; font-variant: small-caps; letter-spacing: .03em; margin: 5.5mm 0 2mm; break-after: avoid; text-align: left; }
+  h2 .n { display: inline-block; min-width: 7mm; }
+  h3 { font-size: 10.5pt; font-weight: 700; font-style: italic; margin: 3.5mm 0 1.4mm; break-after: avoid; text-align: left; }
+  h3 .n { font-style: normal; margin-right: 2mm; }
+  p { margin: 0 0 2.2mm; }
+  p + p { text-indent: 5mm; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; text-align: left; line-height: 1.3; }
+  th { font-weight: 700; border-top: 1.2pt solid #000; border-bottom: .6pt solid #000; padding: 1mm 1.6mm; vertical-align: bottom; }
+  td { padding: .75mm 1.6mm; vertical-align: top; }
+  tr:last-child td { border-bottom: 1.2pt solid #000; padding-bottom: 1mm; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .win { font-weight: 700; }
+
+  figure { margin: 2.5mm 0 4mm; break-inside: avoid; }
+  figure.center { width: 66%; margin-left: auto; margin-right: auto; }
+  figcaption { font-size: 9pt; line-height: 1.35; margin-top: 1.6mm; text-align: left; }
+  figcaption b { font-weight: 700; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; align-items: start; margin: 2.5mm 0 4mm; break-inside: avoid; }
+  .pair figure { margin: 0; }
+  .stack figure + figure { margin-top: 4mm; }
+
+  code { font-family: "Courier New", Courier, monospace; font-size: 8.6pt; }
+  pre { font-family: "Courier New", Courier, monospace; font-size: 7.7pt; line-height: 1.32; border: .6pt solid #000; padding: 2.2mm 2.6mm; white-space: pre; margin: 0; text-align: left; }
+  .ibar { display: inline-block; height: 6px; vertical-align: middle; }
+  svg { display: block; }
+  svg text { font-family: Arial, Helvetica, sans-serif; }
+  ol.refs { font-size: 9pt; padding-left: 6mm; margin: 0; text-align: left; line-height: 1.35; }
+  ol.refs li { margin-bottom: 1.2mm; }
+  .note { font-size: 9pt; font-style: italic; margin-top: 3mm; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="titleblock">
+  <div class="venue">Syntax Error 2026 · Local LLM Track · Problem Statement 3</div>
+  <h1>Factualis: Grounded Compliance Answers<br>from a Local 3B Model</h1>
+  <div class="team">Team Gowardhan Gheeks</div>
+  <div class="sub">Technical report</div>
+  <div class="code">Code, data and results: __REPO_LINK__</div>
+  <div class="code">Demo video: <a href="https://drive.google.com/file/d/1opSN-g1zy9QP-Ob5E74osOKGf28nuZfF/view?usp=sharing">drive.google.com/file/d/1opSN-g1zy9QP-Ob5E74osOKGf28nuZfF</a></div>
+</div>
+
+<div class="abstract"><span class="h">Abstract</span>
+Compliance staff need answers they can trace to a specific clause, and a fluent answer drawn from a model's general knowledge is worse than no answer at all. We present Factualis, a question-answering system for a fictional Indian bank that answers only from the bank's own policy library, quotes the governing clause verbatim and abstains when the policy is silent. Every quote and figure in an answer is checked against the source text by a deterministic verifier. The library combines three public regulations with three internal procedures whose thresholds were chosen to differ from common practice, so that answers from general knowledge are detectably wrong. Training data was generated with CuratorKIT using a 7B teacher served by SGLang and filtered word for word; Qwen2.5-3B was then fine-tuned with SFT and DPO using AlignTune on a single T4, and every evaluation was graded with AuditKIT on 94 hand-verified questions. Structured decoding in SGLang raised the share of checkable answers from 0% to 100%, and RadixAttention reduced time to first token by a factor of 9.3. The fine-tuned model refuses answerable questions significantly less often than the base model (17.6% against 28.4%, p = 0.02) and makes about half as many unsupported claims per answer, while the two tie on the strictest combined measure. We also report a failure in our first training run and trace it to the answer specification.
+</div>
+<div class="keywords"><b>Keywords:</b> grounded generation, hallucination, structured decoding, retrieval, preference optimisation, banking compliance</div>
+
+<h2><span class="n">1</span>Introduction</h2>
+<p>Problem Statement 3 asks for a model adapted to an organisation's documents that answers only from those documents, says so when the answer is not there, and makes measurably fewer unsupported claims. We chose banking compliance because the cost of a wrong answer is easy to see. A branch officer who asks whether a Rs 9 lakh RTGS transfer from a new customer needs review should get the bank's own rule, not the US USD 10,000 reporting threshold or a five-year retention period that a general model is likely to produce.</p>
+<p>Our starting point is that a claim which cannot be traced to a clause should not be shown as an answer. Factualis therefore asks the model for a fixed structured answer in which every rule and quotation is tied to a clause, enforces that structure during decoding, and verifies the result with a program rather than a second model (Figure 1). This makes grounding measurable for every single answer, which in turn lets us filter training data, evaluate models and decide what users see with the same checks.</p>
+
+<figure>
+<svg viewBox="0 0 760 124" width="100%">
+  <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#000"/></marker></defs>
+  <style>.fb{fill:#fff;stroke:#000;stroke-width:1}.ft{font-size:10.5px;font-weight:700;fill:#000}.fs{font-size:9px;fill:#222}.fl{stroke:#000;stroke-width:1.2;fill:none;marker-end:url(#a1)}.o2{fill:#fff;stroke:#000;stroke-dasharray:4 2}</style>
+  <rect class="fb" x="0" y="40" width="104" height="44"/><text class="ft" x="9" y="58">Question</text><text class="fs" x="9" y="72">from the officer</text>
+  <rect class="fb" x="124" y="40" width="124" height="44"/><text class="ft" x="133" y="58">Retrieve</text><text class="fs" x="133" y="72">6 clauses, BM25</text>
+  <rect class="fb" x="268" y="40" width="152" height="44"/><text class="ft" x="277" y="58">SGLang + XGrammar</text><text class="fs" x="277" y="72">structured answer</text>
+  <polygon points="502,24 564,62 502,100 440,62" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text class="ft" x="502" y="59" text-anchor="middle">Verifier</text><text class="fs" x="502" y="71" text-anchor="middle">quotes, figures</text>
+  <path class="fl" d="M104 62 H122"/><path class="fl" d="M248 62 H266"/><path class="fl" d="M420 62 H438"/>
+  <rect class="fb" x="606" y="2" width="154" height="34"/><text class="ft" x="614" y="17">Answer, marked Verified</text><text class="fs" x="614" y="29">every claim found in policy</text>
+  <rect class="o2" x="606" y="45" width="154" height="34"/><text class="ft" x="614" y="60">Held for review</text><text class="fs" x="614" y="72">a claim not found (Verified mode)</text>
+  <rect class="fb" x="606" y="88" width="154" height="34"/><text class="ft" x="614" y="103">Not in policy</text><text class="fs" x="614" y="115">abstains, shows closest clauses</text>
+  <path class="fl" d="M543 50 L578 19 H604"/><path class="fl" d="M564 62 H604"/><path class="fl" d="M543 74 L578 105 H604"/>
+  <text class="fs" x="534" y="33">pass</text><text class="fs" x="576" y="57">fail</text><text class="fs" x="522" y="101">abstain</text>
+</svg>
+<figcaption><b>Figure 1:</b> How Factualis answers a question. The verifier decides whether the answer is shown, held for human review, or replaced by a refusal.</figcaption>
+</figure>
+
+<p>The contributions of this work are a policy library and test set built so that hallucinated thresholds are detectable; a pipeline that uses all four track tools on one free T4; an evaluation of structured decoding, prefix caching, SFT and DPO on this task; and an analysis of a regression in our first training run, which we traced to the answer specification rather than the training method.</p>
+
+<h2><span class="n">2</span>Policy Library and Test Set</h2>
+<p>Factualis Bank is fictional. Its library contains three public Indian regulations and three internal procedures that we wrote for this project (Table 2). The internal procedures deliberately use thresholds that differ from common practice (Table 1), and the regulations contribute realistic length and cross-referencing. Two documents, the SEBI insider trading regulations and the Employee Personal Dealing Policy, were excluded from training entirely so that we could measure grounding on unseen policy.</p>
+<div class="pair">
+  <figure>
+    <table>
+      <tr><th>Rule</th><th>General knowledge</th><th>Factualis Bank</th></tr>
+      <tr><td>Domestic wire review, new customer</td><td>none, or USD 10,000</td><td>Rs 7,50,000; Branch Operations Manager within 4 working hours</td></tr>
+      <tr><td>Outward remittance approval</td><td>varies</td><td>USD 15,000; Head of Financial Crime Compliance</td></tr>
+      <tr><td>Wire record retention</td><td>5 years</td><td>8 years</td></tr>
+      <tr><td>High-risk KYC update</td><td>2 years (RBI)</td><td>18 months</td></tr>
+      <tr><td>Employee pre-clearance</td><td>Rs 10 lakh</td><td>Rs 5,00,000 per quarter</td></tr>
+    </table>
+    <figcaption><b>Table 1:</b> Internal thresholds chosen to differ from common practice.</figcaption>
+  </figure>
+  <figure>
+    <table>
+      <tr><th>Document</th><th class="num">Clauses</th><th style="width:26%"></th></tr>
+      <tr><td>Wire Transfer &amp; Sanctions SOP</td><td class="num">41</td><td><span class="ibar" style="width:17.6%;background:#000"></span></td></tr>
+      <tr><td>Customer Due Diligence SOP</td><td class="num">37</td><td><span class="ibar" style="width:15.9%;background:#000"></span></td></tr>
+      <tr><td>Employee Personal Dealing Policy</td><td class="num">23</td><td><span class="ibar" style="width:9.9%;background:#999"></span></td></tr>
+      <tr><td>RBI KYC Master Direction (Aug 2025)</td><td class="num">233</td><td><span class="ibar" style="width:100%;background:#000"></span></td></tr>
+      <tr><td>PML (Maintenance of Records) Rules</td><td class="num">43</td><td><span class="ibar" style="width:18.5%;background:#000"></span></td></tr>
+      <tr><td>SEBI Insider Trading Regulations</td><td class="num">139</td><td><span class="ibar" style="width:59.7%;background:#999"></span></td></tr>
+    </table>
+    <figcaption><b>Table 2:</b> The policy library, 516 clauses in total. Grey bars mark the two documents held out of training.</figcaption>
+  </figure>
+</div>
+<p>Documents are split into clause-level chunks so that a citation always resolves to a real clause number. Indian legal PDFs needed some care here: footnote markers attached to clause numbers, cross-references that wrap onto a new line, page watermarks and the Hindi half of bilingual gazettes all had to be handled. Retrieval is BM25 [6] over clauses, returning the top six.</p>
+<p>The test set has 94 questions: 41 fully answerable, 20 near-miss traps that should be refused, 15 that are only partly answerable and 18 where two clauses give conflicting rules. We wrote 32 of them by hand and generated 62 with Gemini from the clause text, then reviewed each generated item. Every evidence quote was confirmed to appear verbatim in the corpus, every trap was checked against the closest clauses, 8 items were dropped as ambiguous and 8 were relabelled. Training questions were checked against the test set for exact and paraphrased overlap.</p>
+
+<h2><span class="n">3</span>Method</h2>
+<h3><span class="n">3.1</span>Answer format and verification</h3>
+<p>Each answer is a JSON object with a short summary, a status, the extracted rules, verbatim citations and a list of the parts of the question that the policy does not cover (Figure 2). The status is one of <i>fully grounded</i>, <i>partially grounded</i>, <i>regulatory conflict</i> or <i>not in policy</i>. Decoding is constrained by the JSON schema through SGLang's XGrammar backend [2], so the output always parses.</p>
+<p>The verifier then applies the checks in Table 3. A quote counts as grounded only if it appears in the retrieved clauses character for character; whitespace is ignored because extracted PDF text contains stray spaces inside words. Figures are compared digit group by digit group, and an answer to a trap question that claims to be grounded counts as a hallucination whatever its quotes say. The same checks filter the training data, produce the evaluation metrics and, in the deployed application, hold back any answer that fails them.</p>
+<div class="pair">
+  <figure>
+<pre>{
+  "summary_answer": "Yes. It needs prior approval
+      from the HFCC because it exceeds USD 15,000.",
+  "epistemic_status": "FULLY_GROUNDED",
+  "extracted_rules": [
+    {"rule_category": "MONETARY_THRESHOLD",
+     "exact_value": "USD 15,000", ...},
+    {"rule_category": "APPROVAL_AUTHORITY",
+     "exact_value": "HFCC", ...}],
+  "verbatim_citations": [
+    {"doc_id": "fb_aml_wire_sop",
+     "clause_or_section": "4.3",
+     "exact_quote": "An outward cross-border
+        remittance exceeding USD 15,000, or its
+        equivalent in any other currency, shall
+        require the prior approval of the HFCC."}],
+  "unstated_regulatory_gaps": []
+}</pre>
+    <figcaption><b>Figure 2:</b> An answer in the Factualis format. SGLang's XGrammar backend enforces this structure token by token.</figcaption>
+  </figure>
+  <figure>
+    <table>
+      <tr><th>Check</th><th>Passes when</th></tr>
+      <tr><td>Quote grounded</td><td>the quote appears verbatim in the retrieved clauses</td></tr>
+      <tr><td>Value supported</td><td>every extracted figure appears in the clauses</td></tr>
+      <tr><td>Trap refused</td><td>an out-of-policy question is answered as not in policy</td></tr>
+      <tr><td>Summary present</td><td>the summary has at least 20 characters</td></tr>
+      <tr><td>Status consistent</td><td>a refusal carries no claims and an answer carries a citation</td></tr>
+    </table>
+    <figcaption><b>Table 3:</b> The verifier's checks. An answer is a hallucination if it fails any of the first three.</figcaption>
+  </figure>
+</div>
+
+<h3><span class="n">3.2</span>Pipeline</h3>
+<p>Figure 3 shows the full pipeline. SGLang [1] serves both the teacher used for data generation and the deployed model, so the same server configuration and the same structured decoding are used throughout.</p>
+<figure>
+<svg viewBox="0 0 760 330" width="100%">
+  <defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#000"/></marker></defs>
+  <style>.b{fill:#fff;stroke:#000;stroke-width:1}.g{fill:#fff;stroke:#999;stroke-dasharray:3 2}.t{font-size:11px;font-weight:700;fill:#000}.s{font-size:9.4px;fill:#222}.k{font-size:8.5px;fill:#000;font-weight:700;letter-spacing:1px}.l{stroke:#000;stroke-width:1.2;fill:none;marker-end:url(#a)}</style>
+  <rect class="g" x="0" y="0" width="760" height="104"/><text class="k" x="10" y="14">STAGE 1 · DATA CURATION</text>
+  <rect class="g" x="0" y="112" width="760" height="74"/><text class="k" x="10" y="126">STAGE 2 · ALIGNMENT</text>
+  <rect class="g" x="0" y="194" width="760" height="136"/><text class="k" x="10" y="208">STAGE 3 · SERVING AND EVALUATION</text>
+  <rect class="b" x="12" y="22" width="160" height="72"/><text class="t" x="21" y="39">Policy library</text><text class="s" x="21" y="55">6 documents, 516 clauses</text><text class="s" x="21" y="68">3 regulations + 3 SOPs</text><text class="s" x="21" y="81">2 documents held out</text>
+  <rect class="b" x="200" y="22" width="166" height="72"/><text class="t" x="209" y="39">CuratorKIT</text><text class="s" x="209" y="55">485 grounded Q&amp;A, 262 traps</text><text class="s" x="209" y="68">hallucination + reward filters</text><text class="s" x="209" y="81">teacher: 7B on SGLang</text>
+  <rect class="b" x="394" y="22" width="166" height="72"/><text class="t" x="403" y="39">Teacher labelling</text><text class="s" x="403" y="55">600 questions answered in</text><text class="s" x="403" y="68">the strict format (XGrammar)</text><text class="s" x="403" y="81">answers cached as they arrive</text>
+  <rect class="b" x="588" y="22" width="160" height="72"/><text class="t" x="597" y="39">Word-for-word filter</text><text class="s" x="597" y="55">253 verified answers</text><text class="s" x="597" y="68">455 DPO pairs, one fact</text><text class="s" x="597" y="81">broken per rejected answer</text>
+  <path class="l" d="M172 58 H198"/><path class="l" d="M366 58 H392"/><path class="l" d="M560 58 H586"/>
+  <rect class="b" x="200" y="132" width="166" height="46"/><text class="t" x="209" y="149">AlignTune SFT</text><text class="s" x="209" y="164">253 samples, 2 epochs, 4-bit LoRA</text>
+  <rect class="b" x="394" y="132" width="166" height="46"/><text class="t" x="403" y="149">AlignTune DPO</text><text class="s" x="403" y="164">455 pairs, β 0.1, 92.5% pref. acc.</text>
+  <rect class="b" x="588" y="132" width="160" height="46"/><text class="t" x="597" y="149">Merge</text><text class="s" x="597" y="164">LoRA into fp16 Qwen2.5-3B</text>
+  <path class="l" d="M668 94 V108 H283 V130"/><path class="l" d="M366 155 H392"/><path class="l" d="M560 155 H586"/>
+  <rect class="b" x="12" y="216" width="160" height="58"/><text class="t" x="21" y="233">Retrieval</text><text class="s" x="21" y="249">BM25 over clauses, top 6,</text><text class="s" x="21" y="262">clause IDs for citations</text>
+  <rect class="b" x="200" y="216" width="240" height="58"/><text class="t" x="209" y="233">SGLang inference</text><text class="s" x="209" y="249">XGrammar: answer format enforced per token</text><text class="s" x="209" y="262">RadixAttention: shared policy prefix cached</text>
+  <rect class="b" x="468" y="216" width="280" height="58"/><text class="t" x="477" y="233">Deterministic verifier</text><text class="s" x="477" y="249">every quote and figure checked against the</text><text class="s" x="477" y="262">retrieved clauses; failures held for review</text>
+  <rect class="b" x="200" y="284" width="240" height="38"/><text class="t" x="209" y="300">AuditKIT</text><text class="s" x="209" y="314">graded, fingerprinted, paired comparison</text>
+  <rect class="b" x="468" y="284" width="280" height="38"/><text class="t" x="477" y="300">Factualis web application</text><text class="s" x="477" y="314">FastAPI backend, single-page frontend</text>
+  <path class="l" d="M668 178 V190 H320 V214"/><path class="l" d="M172 245 H198"/><path class="l" d="M440 245 H466"/><path class="l" d="M608 274 V282"/><path class="l" d="M320 274 V282"/>
+</svg>
+<figcaption><b>Figure 3:</b> The Factualis pipeline, from the policy library to the deployed application.</figcaption>
+</figure>
+
+<h3><span class="n">3.3</span>Training data and fine-tuning</h3>
+<p>We fed 260 training clauses, internal procedures first and then a sample of the regulations, to two CuratorKIT pipelines driven by Qwen2.5-7B-Instruct in AWQ 4-bit [7, 8] on SGLang. The grounded pipeline produced 485 question-answer pairs from 243 clauses, 463 of which passed CuratorKIT's hallucination and reward filters. The adversarial pipeline produced 262 near-miss questions from 257 clauses.</p>
+<p>The teacher then answered 600 questions (318 answerable, 218 traps and 64 partly answerable, drawn from CuratorKIT's output and our hand-written seeds) in the strict format, over the same six clauses the student would see. We kept an answer only if every quote and value was verbatim and the status matched the question type. Only 253 answers, 42%, survived (Figure 4). Even with its output format enforced, the teacher fabricated a quote or figure in 55 answers (9.2%) and answered 165 of the 218 traps.</p>
+<p>For DPO, each rejected answer is a verified answer with exactly one fault introduced programmatically: a reworded quote (136 pairs), a refusal of an answerable question (121), a substituted threshold (75), a dropped condition (74) or an answer to a trap (49). Because the fault is constructed, every rejected answer is known to be wrong and each pair isolates a single failure mode.</p>
+<p>Qwen2.5-3B-Instruct [7] was fine-tuned with SFT and then with DPO [3] using AlignTune (Table 4). The T4 has no bf16 support and cannot hold the SGLang memory pool and a training job together, so the server is stopped before training and the LoRA adapters are merged on the GPU in a separate process afterwards. DPO behaved as expected: by step 10 of 27 it preferred the verified answer in 92.5% of pairs, with a reward margin of 0.90.</p>
+<div class="pair">
+  <figure>
+    <svg viewBox="0 0 370 256" width="100%">
+      <g font-size="9" fill="#000">
+        <text x="0" y="11">retained for training</text><rect x="148" y="2" width="168" height="11" fill="#000"/><text x="321" y="11" font-weight="700">253</text>
+        <text x="0" y="36" font-weight="700" font-size="8">REJECTED</text>
+        <text x="0" y="54">trap answered</text><rect x="148" y="45" width="110" height="11" fill="#808080"/><text x="263" y="54">165</text>
+        <text x="0" y="74">partial, mislabelled</text><rect x="148" y="65" width="29" height="11" fill="#c8c8c8"/><text x="182" y="74">44</text>
+        <text x="0" y="94">no citation</text><rect x="148" y="85" width="28" height="11" fill="#c8c8c8"/><text x="181" y="94">42</text>
+        <text x="0" y="114">fabricated quote</text><rect x="148" y="105" width="24" height="11" fill="#808080"/><text x="177" y="114">36</text>
+        <text x="0" y="134">answerable, marked partial</text><rect x="148" y="125" width="15" height="11" fill="#c8c8c8"/><text x="168" y="134">23</text>
+        <text x="0" y="154">unsupported value</text><rect x="148" y="145" width="13" height="11" fill="#808080"/><text x="166" y="154">19</text>
+        <text x="0" y="174">invalid format</text><rect x="148" y="165" width="7" height="11" fill="#c8c8c8"/><text x="160" y="174">10</text>
+        <text x="0" y="194">answerable, abstained</text><rect x="148" y="185" width="5" height="11" fill="#c8c8c8"/><text x="158" y="194">8</text>
+      </g>
+      <line x1="148" y1="0" x2="148" y2="200" stroke="#000" stroke-width=".8"/>
+      <g font-size="8" fill="#222">
+        <rect x="0" y="214" width="9" height="9" fill="#808080"/><text x="14" y="222">hallucination (220): fabricated quote or value, answered trap</text>
+        <rect x="0" y="230" width="9" height="9" fill="#c8c8c8"/><text x="14" y="238">wrong status, missing citation or invalid format (127)</text>
+        <rect x="0" y="246" width="9" height="9" fill="#000"/><text x="14" y="254">passed every check (253, 42%)</text>
+      </g>
+    </svg>
+    <figcaption><b>Figure 4:</b> What happened to the 600 teacher answers under the word-for-word filter.</figcaption>
+  </figure>
+  <figure>
+    <table>
+      <tr><th></th><th>SFT</th><th>DPO</th></tr>
+      <tr><td>Initialised from</td><td>Qwen2.5-3B-Instruct</td><td>merged SFT model</td></tr>
+      <tr><td>Training data</td><td>253 verified answers</td><td>455 preference pairs</td></tr>
+      <tr><td>Epochs</td><td>2</td><td>1</td></tr>
+      <tr><td>Learning rate</td><td>2e-4</td><td>2e-5</td></tr>
+      <tr><td>DPO β</td><td>–</td><td>0.1</td></tr>
+      <tr><td>LoRA rank, α</td><td>16, 32</td><td>16, 32</td></tr>
+      <tr><td>Precision</td><td>4-bit base, fp16</td><td>4-bit base, fp16</td></tr>
+      <tr><td>Effective batch</td><td>16</td><td>16</td></tr>
+    </table>
+    <figcaption><b>Table 4:</b> Training configuration. Both stages use AlignTune with the Unsloth backend and LoRA [4] adapters on a 4-bit base model [5], on one T4.</figcaption>
+  </figure>
+</div>
+
+<h2><span class="n">4</span>Experimental Setup</h2>
+<p>We compare five configurations that receive the same question, the same six retrieved clauses and the same instructions: A, the base model with prompting only; B, the base model with XGrammar; C, after SFT; D, after SFT and DPO; and E, the SFT and DPO model without XGrammar. All metrics come from the verifier in Section 3.1. The two held-out documents account for 15 test questions and are also reported separately. AuditKIT grades the saved outputs of each run, fingerprints the run with a hash over model, data, scorers and configuration, and compares two runs question by question. Significance is assessed with a paired sign-flip permutation test with 10,000 resamples.</p>
+
+<h2><span class="n">5</span>Results</h2>
+<h3><span class="n">5.1</span>Initial evaluation</h3>
+<p>Structured decoding was the single most important component (Table 5). Without XGrammar, neither the base model nor the fine-tuned model produced one answer we could parse, while with it 92 to 100% of answers were valid. Prefix caching mattered for responsiveness: questions to the same bank share a long prefix of instructions and clauses, and reusing its cached attention state cut time to first token from 2,251 ms to 242 ms (Figure 6).</p>
+<p>The fine-tuning results were mixed (Figure 5). DPO recovered much of what SFT had lost, reducing trap answers from 50% to 25%, held-out unsupported claims from 46.7% to 26.7% and raising abstention F1 from 0.56 to 0.70. However, the fine-tuned model did not improve on the base model inside the Factualis system, which remained the strongest configuration on hallucination and abstention.</p>
+<figure class="center" style="width:78%">
+      <table>
+        <tr><th>Metric</th><th class="num">A</th><th class="num">B</th><th class="num">C</th><th class="num">D</th><th class="num">E</th></tr>
+        <tr><td>Valid answers</td><td class="num">0%</td><td class="num win">100%</td><td class="num">97.9%</td><td class="num">91.5%</td><td class="num">0%</td></tr>
+        <tr><td>No unsupported claim</td><td class="num">–</td><td class="num win">85.1%</td><td class="num">67.0%</td><td class="num">67.0%</td><td class="num">–</td></tr>
+        <tr><td>Verbatim quotes</td><td class="num">–</td><td class="num">74.5%</td><td class="num win">89.5%</td><td class="num">82.4%</td><td class="num">–</td></tr>
+        <tr><td>Abstention F1</td><td class="num">–</td><td class="num win">0.71</td><td class="num">0.56</td><td class="num">0.70</td><td class="num">–</td></tr>
+        <tr><td>Median time</td><td class="num">38 s</td><td class="num win">15 s</td><td class="num">49 s</td><td class="num">42 s</td><td class="num">–</td></tr>
+      </table>
+      <figcaption><b>Table 5:</b> Initial evaluation. A and E (no XGrammar) produced no parseable answer. Quote rates are pooled over all quotes.</figcaption>
+</figure>
+<div class="pair">
+  <figure>
+    <svg viewBox="0 0 370 226" width="100%">
+      <g font-size="8.4" fill="#222">
+        <rect x="0" y="0" width="9" height="9" fill="#000"/><text x="13" y="8">B base</text>
+        <rect x="58" y="0" width="9" height="9" fill="#808080"/><text x="71" y="8">C SFT</text>
+        <rect x="114" y="0" width="9" height="9" fill="#fff" stroke="#000" stroke-width="0.9"/><text x="127" y="8">D SFT + DPO</text>
+      </g>
+      <g font-size="8.8" fill="#000">
+        <text x="0" y="26" font-weight="700">Answers with an unsupported claim</text>
+        <rect x="0" y="31" width="74.5" height="9" fill="#000"/><text x="79" y="39">14.9%</text>
+        <rect x="0" y="42" width="154.5" height="9" fill="#808080"/><text x="159" y="50">30.9%</text>
+        <rect x="0" y="53" width="122.5" height="9" fill="#fff" stroke="#000" stroke-width="0.9"/><text x="127" y="61">24.5%</text>
+        <text x="0" y="80" font-weight="700">Trap questions answered</text>
+        <rect x="0" y="85" width="100" height="9" fill="#000"/><text x="105" y="93">20%</text>
+        <rect x="0" y="96" width="250" height="9" fill="#808080"/><text x="255" y="104">50%</text>
+        <rect x="0" y="107" width="125" height="9" fill="#fff" stroke="#000" stroke-width="0.9"/><text x="130" y="115">25%</text>
+        <text x="0" y="134" font-weight="700">Held-out documents: unsupported claims</text>
+        <rect x="0" y="139" width="66.5" height="9" fill="#000"/><text x="71" y="147">13.3%</text>
+        <rect x="0" y="150" width="233.5" height="9" fill="#808080"/><text x="238" y="158">46.7%</text>
+        <rect x="0" y="161" width="133.5" height="9" fill="#fff" stroke="#000" stroke-width="0.9"/><text x="138" y="169">26.7%</text>
+        <text x="0" y="188" font-weight="700">Answerable questions refused</text>
+        <rect x="0" y="193" width="61" height="9" fill="#000"/><text x="66" y="201">12.2%</text>
+        <rect x="0" y="204" width="40.5" height="9" fill="#808080"/><text x="45.5" y="212">8.1%</text>
+        <rect x="0" y="215" width="40.5" height="9" fill="#fff" stroke="#000" stroke-width="0.9"/><text x="45.5" y="223">8.1%</text>
+      </g>
+    </svg>
+    <figcaption><b>Figure 5:</b> Hallucination and refusal rates in the initial evaluation, 94 questions. Lower is better.</figcaption>
+  </figure>
+    <figure>
+      <svg viewBox="0 0 370 52" width="100%">
+        <text x="0" y="16" font-size="8.8" fill="#000">cache flushed</text><rect x="78" y="6" width="232" height="13" fill="#c8c8c8"/><text x="315" y="16" font-size="8.8" fill="#000">2,251 ms</text>
+        <text x="0" y="42" font-size="8.8" fill="#000">prefix cached</text><rect x="78" y="32" width="25" height="13" fill="#000"/><text x="108" y="42" font-size="8.8" fill="#000" font-weight="700">242 ms (9.3× faster)</text>
+      </svg>
+      <figcaption><b>Figure 6:</b> Time to first token with and without RadixAttention (median, 8 questions, shared context).</figcaption>
+    </figure>
+</div>
+
+<h3><span class="n">5.2</span>Error analysis</h3>
+<p>AuditKIT's question-by-question comparison showed that the regressions were significant (Figure 7), and the largest was not one our grounding metrics were designed to catch: the fine-tuned model left the summary empty in all 94 answers.</p>
+<p>Two defects in the answer specification explain this. The schema asked for a compliance decision whose allowed values the instructions never defined, and every model, including the base model in all 94 answers, chose the single value mentioned in the refusal rule. The summary was optional and placed after the labels, and the base model already left it empty in 23 of 94 answers. The teacher's answers carried both defects, our filter checked what answers claimed but not what they omitted, and fine-tuning amplified the pattern. The fine-tuned model also adopted the teacher's longer answers (median 42 s against 15 s), which gave each answer more claims that could fail. Table 6 lists the corrections we made.</p>
+<figure class="center">
+  <svg viewBox="0 0 370 134" width="100%">
+    <line x1="190" y1="0" x2="190" y2="116" stroke="#000" stroke-width=".8"/>
+    <g font-size="8.6" fill="#000">
+      <text x="0" y="13">Summary present</text><rect x="100" y="4" width="90" height="12" fill="#808080"/><text x="196" y="13"><tspan font-weight="700">−72.3</tspan>   p = 0.0001</text>
+      <text x="0" y="37">No unsupported claim</text><rect x="167.5" y="28" width="22.5" height="12" fill="#808080"/><text x="196" y="37"><tspan font-weight="700">−18.1</tspan>   p = 0.001</text>
+      <text x="0" y="61">Quotes verbatim</text><rect x="176.3" y="52" width="13.7" height="12" fill="#808080"/><text x="196" y="61"><tspan font-weight="700">−11.0</tspan>   p = 0.014</text>
+      <text x="0" y="85">Valid format</text><rect x="179.4" y="76" width="10.6" height="12" fill="#808080"/><text x="196" y="85"><tspan font-weight="700">−8.5</tspan>   p = 0.010</text>
+      <text x="0" y="109">Status correct</text><text x="196" y="109"><tspan font-weight="700">0.0</tspan>   p = 1.0</text>
+    </g>
+    <text x="190" y="128" font-size="7.6" fill="#222" text-anchor="middle">0</text>
+    <text x="100" y="128" font-size="7.6" fill="#222" text-anchor="middle">−72</text>
+    <line x1="100" y1="116" x2="100" y2="120" stroke="#000" stroke-width=".8"/><line x1="190" y1="116" x2="190" y2="120" stroke="#000" stroke-width=".8"/>
+  </svg>
+  <figcaption><b>Figure 7:</b> AuditKIT paired comparison in the initial evaluation: fine-tuned (D) minus base (B), in percentage points. Quote figures are averaged per question here, so they differ from the pooled values in Table 5.</figcaption>
+</figure>
+<figure>
+  <table>
+    <tr><th style="width:26%">Defect</th><th style="width:28%">Correction</th><th>Mechanism</th></tr>
+    <tr><td>Summary optional, after the labels</td><td>Summary first, at least 20 characters</td><td>Enforced during decoding with an XGrammar <code>minLength</code> constraint, so the model states its answer before choosing labels</td></tr>
+    <tr><td>Decision label never defined</td><td>Field removed</td><td>The headline shown to users is derived from the status, which is measured</td></tr>
+    <tr><td>Field meaning left implicit</td><td>Instructions written per field</td><td>Each status is defined, and refusals must carry no claims</td></tr>
+    <tr><td>Usability not measured</td><td>New filter checks and metrics</td><td>Empty summaries are rejected; summary presence, status consistency and a usable-and-correct rate are reported</td></tr>
+    <tr><td>Long answers truncated</td><td>Token limit raised to 1,536</td><td>Multi-clause answers can complete</td></tr>
+  </table>
+  <figcaption><b>Table 6:</b> Corrections made to the answer specification after the initial evaluation.</figcaption>
+</figure>
+
+<h3><span class="n">5.3</span>Final evaluation</h3>
+<p>We re-evaluated the base and fine-tuned models on the same 94 questions with the corrected specification (AuditKIT run fingerprints <code>4e16c7a18cd5</code> and <code>df64935d0b7c</code>). Under the corrected specification the fine-tuned model's summaries returned, from 0% to 97.9%, and its share of answers with no unsupported claim rose from 67.0% to 77.7%, level with the base model.</p>
+<p>Against the base model, the fine-tuned model refuses answerable questions significantly less often, makes about half as many unsupported claims per answer, quotes the policy verbatim more often and classifies questions on the held-out documents better (Figure 8, Table 7). It also answers three trap questions where the base model answers one, and its status labels agree less often with the content of the answer. On the strictest combined measure, an answer that is valid, has a summary, is internally consistent, carries the correct status and makes no unsupported claim, the two models tie at 41.5%. Given the small number of traps and held-out questions, only the differences in false refusals and status consistency are statistically reliable.</p>
+<div class="pair">
+  <figure>
+    <svg viewBox="0 0 370 206" width="100%">
+      <g font-size="8.4" fill="#222">
+        <circle cx="164" cy="5" r="4" fill="#000"/><text x="171" y="8">Base</text>
+        <circle cx="210" cy="5" r="4" fill="#fff" stroke="#000" stroke-width="0.9"/><text x="217" y="8">SFT + DPO</text>
+      </g>
+      <g stroke="#ddd" stroke-width=".8"><line x1="160" y1="18" x2="160" y2="184"/><line x1="207.5" y1="18" x2="207.5" y2="184"/><line x1="255" y1="18" x2="255" y2="184"/><line x1="302.5" y1="18" x2="302.5" y2="184"/><line x1="350" y1="18" x2="350" y2="184"/></g>
+      <g font-size="8.6" fill="#000">
+        <text x="0" y="33">Quotes verbatim ↑</text><line x1="294.1" y1="30" x2="319.4" y2="30" stroke="#999" stroke-width="2"/><circle cx="294.1" cy="30" r="4.5" fill="#000"/><circle cx="319.4" cy="30" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+        <text x="0" y="57">Status accuracy ↑</text><line x1="259" y1="54" x2="269.1" y2="54" stroke="#999" stroke-width="2"/><circle cx="259" cy="54" r="4.5" fill="#000"/><circle cx="269.1" cy="54" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+        <text x="0" y="81">Held-out status accuracy ↑</text><line x1="210.7" y1="78" x2="248.7" y2="78" stroke="#999" stroke-width="2"/><circle cx="210.7" cy="78" r="4.5" fill="#000"/><circle cx="248.7" cy="78" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+        <text x="0" y="105" font-weight="700">False refusals ↓ (p = 0.02)</text><line x1="193.4" y1="102" x2="214" y2="102" stroke="#999" stroke-width="2"/><circle cx="214" cy="102" r="4.5" fill="#000"/><circle cx="193.4" cy="102" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+        <text x="0" y="129">Held-out hallucination ↓</text><line x1="210.7" y1="126" x2="236" y2="126" stroke="#999" stroke-width="2"/><circle cx="236" cy="126" r="4.5" fill="#000"/><circle cx="210.7" cy="126" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+        <text x="0" y="153">Traps answered ↓</text><line x1="169.5" y1="150" x2="188.5" y2="150" stroke="#999" stroke-width="2"/><circle cx="169.5" cy="150" r="4.5" fill="#000"/><circle cx="188.5" cy="150" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+        <text x="0" y="177" font-weight="700">Status consistent ↑ (p = 0.02)</text><line x1="321.7" y1="174" x2="341.8" y2="174" stroke="#999" stroke-width="2"/><circle cx="341.8" cy="174" r="4.5" fill="#000"/><circle cx="321.7" cy="174" r="4.5" fill="#fff" stroke="#000" stroke-width="0.9"/>
+      </g>
+      <g font-size="7.8" fill="#222" text-anchor="middle"><text x="160" y="198">0%</text><text x="207.5" y="198">25%</text><text x="255" y="198">50%</text><text x="302.5" y="198">75%</text><text x="350" y="198">100%</text></g>
+    </svg>
+    <figcaption><b>Figure 8:</b> Base against fine-tuned model in the final evaluation. ↑ higher is better, ↓ lower is better; bold rows are significant at the 0.05 level.</figcaption>
+  </figure>
+  <figure>
+    <table>
+      <tr><th>Metric</th><th class="num">Base</th><th class="num">SFT + DPO</th><th class="num">p</th></tr>
+      <tr><td>Usable and correct</td><td class="num">41.5%</td><td class="num">41.5%</td><td class="num">1.00</td></tr>
+      <tr><td>No unsupported claim</td><td class="num">77.7%</td><td class="num">77.7%</td><td class="num">1.00</td></tr>
+      <tr><td>Unsupported claims per answer</td><td class="num">0.38</td><td class="num win">0.20</td><td class="num">0.17</td></tr>
+      <tr><td>Quotes verbatim (pooled)</td><td class="num">70.6%</td><td class="num win">83.9%</td><td class="num">–</td></tr>
+      <tr><td>Summary groundedness</td><td class="num">0.851</td><td class="num win">0.885</td><td class="num">0.10</td></tr>
+      <tr><td>False refusals (74 answerable)</td><td class="num">28.4%</td><td class="num win">17.6%</td><td class="num">0.02</td></tr>
+      <tr><td>Status accuracy</td><td class="num">52.1%</td><td class="num win">57.4%</td><td class="num">0.18</td></tr>
+      <tr><td>Abstention F1</td><td class="num">0.633</td><td class="num win">0.680</td><td class="num">–</td></tr>
+      <tr><td>Held-out: status accuracy (15)</td><td class="num">26.7%</td><td class="num win">46.7%</td><td class="num">0.25</td></tr>
+      <tr><td>Held-out: hallucination (15)</td><td class="num">40.0%</td><td class="num win">26.7%</td><td class="num">0.63</td></tr>
+      <tr><td>Traps answered (20)</td><td class="num win">5.0%</td><td class="num">15.0%</td><td class="num">0.50</td></tr>
+      <tr><td>Status consistent with content</td><td class="num win">95.7%</td><td class="num">85.1%</td><td class="num">0.02</td></tr>
+      <tr><td>Valid format, summary present</td><td class="num">98.9%</td><td class="num">97.9%</td><td class="num">1.00</td></tr>
+    </table>
+    <figcaption><b>Table 7:</b> Final evaluation on 94 questions; bold marks the better model. Summary groundedness is AuditKIT's lexical overlap between the summary and quotes and the retrieved clauses.</figcaption>
+  </figure>
+</div>
+
+<h2><span class="n">6</span>Deployment</h2>
+<p>The application has a FastAPI backend and a single-page frontend and runs on a Colab T4 behind a public tunnel. Each answer shows the status, a plain-language summary, the extracted requirements marked as found or not found in the policy, and the verbatim quotes; a side panel opens the cited clause with the quotation highlighted. With Verified mode switched on, any answer containing a quote or figure that the verifier cannot find is withheld and marked for human review, following the flow in Figure 1. A switch for structured output lets a user see the raw text the model produces without XGrammar. Figures 9 to 14 show the application. Because the two models tie on the combined measure and the base model refuses traps more reliably, the live demonstration serves the base model.</p>
+__SCREENSHOTS__
+
+<h2><span class="n">7</span>Limitations and Future Work</h2>
+<p>Retrieval is the main ceiling on answer quality: BM25 finds all of the gold evidence for 73% of answerable questions, and dense and hybrid retrieval did not improve on this for our corpus. Following clause cross-references and adding a reranker are the obvious next steps. The test set is small, with only 20 traps and 15 held-out items, so modest differences on those subsets are within noise, which is why we report paired significance tests throughout. Status accuracy on conflicting rules remains low, and more conflict examples in training, together with retrieval that pairs an internal procedure with the regulation it tightens, should help.</p>
+<p>Most importantly, the training data was generated under the original answer specification. Relabelling it under the corrected specification, which the cached teacher answers make cheap, followed by a shorter SFT stage or DPO directly from the base model, is the experiment we would run next. Finally, the demonstration runs on a free Colab session; the same application could be deployed on a serverless GPU.</p>
+
+<h2><span class="n">8</span>Conclusion</h2>
+<p>Factualis shows that a 3B model running locally on a single T4 can give compliance answers whose every quote and figure is checked against the source. Most of the reliability comes from the system around the model: retrieval at the clause level, structured decoding in SGLang and a deterministic verifier that is used for data filtering, evaluation and deployment alike. Fine-tuning with SFT and DPO made the model refuse less and claim less without support, but it also inherited a weakness in our answer specification that only a usability-aware evaluation exposed. All code, data, predictions and AuditKIT reports needed to reproduce these results are in the repository.</p>
+<p class="note">Factualis Bank and its internal procedures are fictional and were written for this project. The RBI, PML and SEBI documents are public.</p>
+
+<h2>References</h2>
+<ol class="refs">
+  <li>L. Zheng, L. Yin, Z. Xie, et al. SGLang: Efficient Execution of Structured Language Model Programs. NeurIPS, 2024.</li>
+  <li>Y. Dong, C. F. Ruan, Y. Cai, et al. XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models. arXiv:2411.15100, 2024.</li>
+  <li>R. Rafailov, A. Sharma, E. Mitchell, et al. Direct Preference Optimization: Your Language Model is Secretly a Reward Model. NeurIPS, 2023.</li>
+  <li>E. J. Hu, Y. Shen, P. Wallis, et al. LoRA: Low-Rank Adaptation of Large Language Models. ICLR, 2022.</li>
+  <li>T. Dettmers, A. Pagnoni, A. Holtzman, L. Zettlemoyer. QLoRA: Efficient Finetuning of Quantized LLMs. NeurIPS, 2023.</li>
+  <li>S. Robertson, H. Zaragoza. The Probabilistic Relevance Framework: BM25 and Beyond. Foundations and Trends in Information Retrieval, 3(4), 2009.</li>
+  <li>Qwen Team. Qwen2.5 Technical Report. arXiv:2412.15115, 2024.</li>
+  <li>J. Lin, J. Tang, H. Tang, et al. AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration. MLSys, 2024.</li>
+</ol>
+
+</body>
+</html>

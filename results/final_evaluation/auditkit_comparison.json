@@ -1,0 +1,28 @@
+{
+  "fingerprints": {
+    "B2_base_v2": "4e16c7a18cd5affe",
+    "D2_aligned_v2": "df64935d0b7c14d7"
+  },
+  "means": {
+    "B2_base_v2": {
+      "valid_json": 0.9893617021276596,
+      "summary_present": 0.9893617021276596,
+      "status_correct": 0.5212765957446809,
+      "no_unsupported_claim": 0.776595744680851,
+      "quotes_verbatim": 0.8457446808510638,
+      "usable_correct": 0.4148936170212766,
+      "is_json": 0.9893617021276596,
+      "summary_groundedness": 0.850597437690822
+    },
+    "D2_aligned_v2": {
+      "valid_json": 0.9787234042553191,
+      "summary_present": 0.9787234042553191,
+      "status_correct": 0.574468085106383,
+      "no_unsupported_claim": 0.776595744680851,
+      "quotes_verbatim": 0.8776595744680851,
+      "usable_correct": 0.4148936170212766,
+      "is_json": 0.9787234042553191,
+      "summary_groundedness": 0.8848661821299104
+    }
+  }
+}

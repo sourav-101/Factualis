@@ -1,0 +1,42 @@
+FACTUALIS BANK LIMITED (FICTIONAL ENTITY - HACKATHON DEMONSTRATION DOCUMENT)
+POLICY: EMPLOYEE PERSONAL DEALING AND INSIDER TRADING CODE OF CONDUCT
+Document ID: FB-PERSONAL-DEALING-POLICY | Version 2.2 | Effective date: 01 April 2026
+Owner: Compliance Officer (Securities) | Approved by: Board of Directors
+
+1. PURPOSE AND SCOPE
+1.1 This Policy is the Bank's code of conduct under the Securities and Exchange Board of India (Prohibition of Insider Trading) Regulations, 2015. It regulates trading in securities by Designated Persons of the Bank and their immediate relatives.
+1.2 This Policy applies to trading in the equity shares, debentures and derivatives of Factualis Bank Limited and of any listed company that is a client of the Bank's Corporate Banking or Investment Banking divisions.
+1.3 This Policy does not cover trading in mutual fund units, sovereign gold bonds, government securities, or crypto assets. Those instruments are not regulated by this Policy.
+
+2. DEFINITIONS
+2.1 "Designated Person" means every employee in the grade of Assistant Vice President and above, every employee of the Corporate Banking, Investment Banking, Treasury and Finance departments irrespective of grade, and every director of the Bank.
+2.2 "Compliance Officer (Securities)" means the officer designated by the Board to administer this Policy.
+2.3 "Restricted List" means the list of listed companies maintained by the Compliance Officer (Securities) in respect of which the Bank holds, or is likely to hold, unpublished price sensitive information.
+
+3. TRADING WINDOW
+3.1 The trading window for the securities of Factualis Bank Limited shall be closed from the end of every quarter until 48 hours after the declaration of the financial results for that quarter.
+3.2 The trading window may also be closed by the Compliance Officer (Securities) at any other time when Designated Persons are reasonably expected to possess unpublished price sensitive information.
+3.3 No Designated Person or immediate relative of a Designated Person shall trade in the Bank's securities while the trading window is closed.
+
+4. PRE-CLEARANCE OF TRADES
+4.1 A Designated Person who intends to trade in the Bank's securities, where the value of the proposed trade, whether in one transaction or a series of transactions over a calendar quarter, exceeds Rs. 5,00,000, shall obtain pre-clearance from the Compliance Officer (Securities).
+4.2 A trade for which pre-clearance has been obtained shall be executed within 5 trading days of the pre-clearance. If it is not executed within that period, fresh pre-clearance shall be obtained.
+4.3 A Designated Person who is a director of the Bank shall obtain pre-clearance from the Managing Director and Chief Executive Officer, instead of from the Compliance Officer (Securities), irrespective of the value of the trade.
+4.4 No pre-clearance shall be given for any trade while the trading window is closed.
+
+5. RESTRICTED LIST
+5.1 No Designated Person shall trade in the securities of any company on the Restricted List.
+5.2 Notwithstanding clause 5.1, a Designated Person who does not work in the Corporate Banking or Investment Banking divisions may trade in the securities of a company on the Restricted List with the prior written approval of the Compliance Officer (Securities), where the value of the trade does not exceed Rs. 1,00,000.
+
+6. MINIMUM HOLDING PERIOD
+6.1 A Designated Person who buys or sells any number of the Bank's securities shall not execute an opposite transaction during the next 6 months.
+6.2 Where a contra trade is executed in breach of clause 6.1, the profits from such trade shall be disgorged for remittance to the Investor Protection and Education Fund administered by SEBI.
+
+7. DISCLOSURES
+7.1 Every Designated Person shall disclose the names and PAN of their immediate relatives, and of persons with whom they share a material financial relationship, within 15 days of becoming a Designated Person and thereafter by 30 April of every year.
+7.2 Every Designated Person shall report to the Compliance Officer (Securities) every trade in the Bank's securities within 2 trading days of the trade.
+
+8. VIOLATIONS
+8.1 A first violation of this Policy shall attract a written warning and a monetary penalty of Rs. 50,000.
+8.2 A second violation of this Policy within 3 years of the first shall attract suspension from service for a period of up to 6 months, in addition to a monetary penalty of Rs. 2,00,000.
+8.3 The Compliance Officer (Securities) shall inform SEBI of any violation of the SEBI (Prohibition of Insider Trading) Regulations, 2015 promptly.

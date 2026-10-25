@@ -1,0 +1,246 @@
+{"question": "Hey, what kind of transfers are actually covered by our wire transfer and sanctions screening rules? Is it just international stuff?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "I have a costumer asking about trade finance letters of credit. Since it involves foreign exchange, we apply the wire SOP, right?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Who is the HFCC, and what exactly does 'Working hours' mean when I'm timing my escalations?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "For a domestic NEFT transfer, do I need to capture the customer's date of birth and purpose code?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "We just got an inward cross-border wire but it's missing the originator's address. Do we return it immediately?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "A new customer (opened account 3 months ago) wants to do a domestic RTGS of Rs. 8,00,000. Does this need any special review?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Since the outward remittance is only USD 12,000, I don't need any HFCC apraval, right? The customer hasn't done any other transfers this month.", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "If a transfer involves a FATF Increased Monitoring jurisdiction, do the standard Section 4 thresholds apply?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "What lists do we actually screen wire transfers against before releasing them?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "I got a screening match with a score of 88. I can just override it myself if it looks like a false positive, right?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Can I just use an updated commercial watchlist for our sanctions screening if I think it's better than the UN list?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "We have a client trying to wire funds to a jurisdiction on the FATF Call for Action list. How do we get the HFCC approval for this?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Are all transfers involving a PEP subject to enhanced due diligence, or only those above a certain amount?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "I suspect a wire transfer is related to a scam. Should I tell the customer their transaction is on hold pending an FIU report?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "How long do we have to keep records of wire transfers and screening alerts? Is it 5 years?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "What happens if a teller releases a transfer that needed HFCC approval but they forgot to get it?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Looking at Annexure A, if a PEP does an outward cross border remittance of USD 5,000, who needs to approve it?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Which types of customers does the Customer Due Diligence and Risk Categorisation SOP apply to?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "I'm onboarding an NRI client. I should follow the standard CDD SOP for risk categorisation, correct?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "A customer is expected to have an annual credit turnover of Rs 3,00,00,000. They are a sole proprietorship. What is their risk category?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Can a customer just bring in their company ID card as proof of identity and address?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "For a private limited company, who exactly is considered a beneficial owner according to our internal rules?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "I'm doing a V-CIP session for a High risk customer to save time. That's allowed under the new digital onboarding rules, right?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "We have a customer who just became a Politically Exposed Person. Do we need to close their account?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "What is the KYC updation frequency for Medium risk and Low risk customers?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "A high risk customer is 100 days overdue for their periodic KYC updation. Should we freeze the account completely?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "The customer is depositing Rs 40,000 in cash. Do I need to ask for their PAN card?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "A customer split their cash deposits into Rs 45,000 chunks over 4 days this week. Is there any reporting requirement for this?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "What is the penalty if a relationship manager onboards a High risk customer without Zonal Compliance Head approval?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "According to Annexure A of the CDD SOP, what happens when updation is overdue by more than 90 days?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Does our employee personal dealing policy cover trades made by my spouse?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "I want to buy some sovereign gold bonds. Do I need to report this under the insider trading code?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "Who qualifies as a 'Designated Person' under the Bank's personal dealing policy?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "Can I trade the Bank's shares two days before the quarterly financial results are announced if I have no inside info?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "I got pre-clearance to sell Bank shares 10 days ago. Can I execute the trade today?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "I am a Director of the Bank. Does the Compliance Officer (Securities) approve my trades?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "I work in HR. Can I buy Rs 50,000 worth of shares in a company that is on the Restricted List?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "I bought Bank shares last month. Can I sell them now to cover an emergency expense?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "When does a Designated Person have to disclose the PAN of their immediate relatives?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "What happens if an employee violates the personal dealing policy for the first time?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "Under the PML rules, how long does the Principal Officer have to submit a suspicious transaction report to the Director after being satisfied it's suspicious?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Is it true that cross border wire transfers only need to be reported if they exceed rupees ten lakhs?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "According to the SEBI PIT Regulations, what exactly constitutes a 'legitimate purpose' for sharing UPSI?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Can a trading plan under SEBI rules start immediately after the compliance officer approves it?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "If a customer brings an equivalent e-document for address proof under PML rules, do we need to verify its digital signature?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Under SEBI PIT, what happens if an insider fails to execute a trade in their trading plan because the price went outside the set limit?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "What is the penalty under SEBI PIT for failing to maintain a structured digital database of UPSI sharing?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Is 'material change in liquidity position' of a mutual fund considered UPSI under the SEBI PIT regulations?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "What documents are required to determine the beneficial owner of a trust under the PML Maintenance of Records Rules?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "How long must the structured digital database be preserved after the completion of the relevant transactions under SEBI PIT?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "If an officially valid document doesn't have an updated address, can a property tax receipt be used as proof of address under PML rules?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Who all are considered 'immediate relatives' in the SEBI Prohibition of Insider Trading Regulations?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Under the PML rules, how many days does a reporting entity have to file the electronic copy of the client's KYC records with the Central KYC Records Registry?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "If I share UPSI with an insolvency professional in the ordinary course of business, do they become an 'insider' under SEBI rules?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Can an insider alter their approved trading plan if there's a stock split before the trades are executed?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Does the PML rules require reporting of all purchase and sale of immovable property valued at fifty lakh rupees or more?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Under SEBI PIT regulations, is a person who shares a residence with a connected person also deemed a connected person?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Is it true that under the SEBI PIT regulations, the compliance officer has up to five trading days to approve or reject a trading plan?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "If a customer submits Aadhaar for KYC offline verification, what must the reporting entity ensure the customer does to the Aadhaar number?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Can I set an upper price limit for a buy trade in my trading plan that is fifty percent higher than the closing price?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "What is the procedure under the PML rules for a 'Digital KYC' live photograph?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "As per the Bank's CDD SOP, since a customer is Low risk, we don't ever need to update their KYC, right?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "If a partnership firm has a partner with a 15% share, are they considered a beneficial owner under the CDD SOP?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Is it acceptable to use the system-assigned High risk category, or can it be lowered by a branch manager?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "I have an alert for a current account that received Rs 20,00,000 in cash this month. Should this generate a Financial Crime alert per the SOP?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Under the Wire SOP, do we have to report instances of getting incomplete wires from the same remitting bank?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "A Level-2 sanctions analyst confirmed a true match against the UN list. How long do we have to report it to the Principal Officer?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "We have an outward remittance for $20,000. It doesn't need HFCC approval if it's for a company, right?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "If a PEP gets a government salary of Rs 1,50,000 a month, does each transfer require EDD?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Under the Personal Dealing Policy, does a second violation result in termination?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "If an off-market transfer happens between insiders with the same UPSI, how soon must they report it to the company under SEBI PIT?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Does the PML rules mandate that a 'small account' foreign remittance can be credited without full identity establishment?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Under the PML rules, how frequently must the Principal Officer furnish the CTR information to the Director?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Is it true that an individual's Aadhaar authentication via e-KYC can only be done if they provide explicit consent?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Can an insider execute a trade under a trading plan if the UPSI they had at the time of formulation is still not public?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "What is the requirement for the structured digital database regarding outsourcing under SEBI rules?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Under PML Rules, does the definition of 'officially valid document' include a letter issued by a gazetted officer for simplified measures?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Does SEBI PIT allow the use of a trading plan to trade for market abuse?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "If a client is a trust, what ownership threshold determines a beneficial owner under PML rules?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Under SEBI PIT regulations, what is the definition of 'financially literate' for a compliance officer?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "According to PML Rules, what is the maximum aggregate of withdrawals allowed in a month for a 'small account'?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Does the definition of UPSI under SEBI PIT include changes in key managerial personnel?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "If a customer submits a utility bill as proof of address under PML rules, how old can it be?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Under SEBI PIT, is the change in ESG ratings considered unpublished price sensitive information?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Who must approve the onboarding of a High risk customer according to the CDD SOP?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "If a V-CIP session is interrupted for 2 minutes, is it automatically terminated?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Can the Compliance Officer (Securities) close the trading window at any time?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "What is the penalty if a Category-A breach happens under the CDD Risk SOP?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "If a domestic transfer by a new customer is for Rs 5,00,000, does it need a second-level review by the Branch Ops Manager?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Does a true match solely against the Internal Watchlist result in an automatic freeze?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "How soon must the FCCD update the High-Risk Jurisdictions list after a FATF plenary publication?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Is an employee allowed to tell a customer that an internal suspicious transaction alert was raised?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "For a company account under CDD SOP, do we need the identification documents of every beneficial owner?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "What documents does an individual need to submit for a CDD check besides PAN or Form 60?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Under the personal dealing policy, do I need to report trades to the Compliance Officer within 5 trading days?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "What is the minimum holding period for Bank's securities purchased by a Designated Person?", "expected": "answerable", "doc_id": "fb_personal_dealing_policy"}
+{"question": "According to SEBI PIT regulations, what is the status of unverified information reported in the media?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "Under PML Rules, does the term 'Regulator' include the Central Board of Indirect Taxes and Customs for real estate agents?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "If a company is getting listed pursuant to a merger scheme filed under the Companies Act, are its securities considered 'proposed to be listed' under SEBI PIT?", "expected": "answerable", "doc_id": "sebi_pit_regulations"}
+{"question": "What constitutes a 'suspicious transaction' under the PML Maintenance of Records Rules?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Do I need to check the OFAC sanctions list before approving a wire transfer?", "expected": "trap", "doc_id": ""}
+{"question": "What is the EDD procedure for onboarding a minor's trust account?", "expected": "trap", "doc_id": ""}
+{"question": "Can I process a SWIFT MT700 trade finance message without HFCC approval?", "expected": "trap", "doc_id": ""}
+{"question": "What is the maximum limit for a cash transaction before we have to file a CTR in USD?", "expected": "trap", "doc_id": ""}
+{"question": "Are cryptocurrency exchanges considered 'High Risk' customers under the CDD SOP?", "expected": "trap", "doc_id": ""}
+{"question": "If an NRI customer wants to update their KYC, can they use a foreign passport as an OVD?", "expected": "trap", "doc_id": ""}
+{"question": "Does the wire SOP apply to correspondent banking respondent accounts?", "expected": "trap", "doc_id": ""}
+{"question": "How often should we review the trading limits for proprietary traders under the SEBI rules?", "expected": "trap", "doc_id": ""}
+{"question": "What happens if a customer refuses to provide their tax residency certificate for FATCA reporting?", "expected": "trap", "doc_id": ""}
+{"question": "Is trading in crypto assets prohibited during the closed trading window?", "expected": "trap", "doc_id": ""}
+{"question": "Do we need to obtain a LEI (Legal Entity Identifier) for corporate wire transfers over Rs 50 crores?", "expected": "trap", "doc_id": ""}
+{"question": "How do we handle accounts for foreign diplomats and embassies?", "expected": "trap", "doc_id": ""}
+{"question": "What is the SLA for responding to a law enforcement agency's request for transaction records?", "expected": "trap", "doc_id": ""}
+{"question": "Are non-governmental organizations (NGOs) automatically categorized as High Risk?", "expected": "trap", "doc_id": ""}
+{"question": "What happens if the V-CIP video recording fails to capture the customer's GPS location properly?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer deposits Rs. 2,000,000 in a savings account, do we file a Cash Transaction Report (CTR) with FIU-IND?", "expected": "trap", "doc_id": ""}
+{"question": "What is the procedure for closing an account if the customer is designated under the UAPA sanctions list?", "expected": "trap", "doc_id": ""}
+{"question": "Does the personal dealing policy apply to my dependent children trading in options of a client company?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer transfers Bitcoin from a virtual asset provider to our bank, do we block it?", "expected": "trap", "doc_id": ""}
+{"question": "What is the penalty for failing to report a cyber breach of the structured digital database?", "expected": "trap", "doc_id": ""}
+{"question": "Are we required to screen domestic wire transfers against the European Union consolidated sanctions list?", "expected": "trap", "doc_id": ""}
+{"question": "Is it permissible to use third-party KYC utilities like e-KYC from a private vendor?", "expected": "trap", "doc_id": ""}
+{"question": "What are the rules for opening an escrow account for a real estate transaction?", "expected": "trap", "doc_id": ""}
+{"question": "Do we need to conduct adverse media screening for Low risk customers?", "expected": "trap", "doc_id": ""}
+{"question": "If a PEP is from a FATF grey list country, do we need board approval to onboard them?", "expected": "trap", "doc_id": ""}
+{"question": "What are the record retention requirements for employee disciplinary actions related to KYC breaches?", "expected": "trap", "doc_id": ""}
+{"question": "Are we allowed to open accounts for shell banks?", "expected": "trap", "doc_id": ""}
+{"question": "What is the minimum fuzzy match score for holding a transaction against the OFAC list?", "expected": "trap", "doc_id": ""}
+{"question": "How do we verify the identity of a visually impaired customer during a V-CIP session?", "expected": "trap", "doc_id": ""}
+{"question": "What specific form is required to declare beneficial ownership for a foreign portfolio investor?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer is a dealer in precious metals, do they need a site visit before onboarding?", "expected": "trap", "doc_id": ""}
+{"question": "Are salary accounts for corporate clients exempt from periodic KYC updation?", "expected": "trap", "doc_id": ""}
+{"question": "What is the Bank's policy on handling ransomware payments via wire transfer?", "expected": "trap", "doc_id": ""}
+{"question": "Do we accept digital driving licenses stored in a mobile app as OVD?", "expected": "trap", "doc_id": ""}
+{"question": "If an employee accidentally leaks UPSI, what is the mandatory reporting timeframe to SEBI?", "expected": "trap", "doc_id": ""}
+{"question": "Are mutual fund units subject to the pre-clearance requirement under the personal dealing policy?", "expected": "trap", "doc_id": ""}
+{"question": "What is the threshold for enhanced due diligence on domestic politically exposed persons vs foreign PEPs?", "expected": "trap", "doc_id": ""}
+{"question": "If a company is undergoing bankruptcy, do we automatically freeze their accounts?", "expected": "trap", "doc_id": ""}
+{"question": "What happens if a designated person trades in a Restricted List company accidentally?", "expected": "trap", "doc_id": ""}
+{"question": "Are we required to use artificial intelligence for transaction monitoring alerts?", "expected": "trap", "doc_id": ""}
+{"question": "What is the maximum number of times a customer can use the V-CIP link if it keeps dropping?", "expected": "trap", "doc_id": ""}
+{"question": "Do we have to report cross border wires below Rs. 50,000 to the FIU?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer wants to send a remittance to an uncooperative tax haven, is it prohibited?", "expected": "trap", "doc_id": ""}
+{"question": "Are bearer shares permitted for corporate customers?", "expected": "trap", "doc_id": ""}
+{"question": "What is the procedure if a customer's Aadhaar number is deactivated by UIDAI?", "expected": "trap", "doc_id": ""}
+{"question": "Does the CDD SOP apply to credit card issuances?", "expected": "trap", "doc_id": ""}
+{"question": "What are the rules for lending against shares of a company on the Restricted List?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer provides a forged PAN card, do we immediately notify the police?", "expected": "trap", "doc_id": ""}
+{"question": "Can a designated person engage in intra-day trading of the Bank's shares?", "expected": "trap", "doc_id": ""}
+{"question": "What are the AML training requirements for the Board of Directors?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer wants to send a cross-border wire of USD 20,000, do I need HFCC approval, and what specific RBI form do they need to fill out?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "Can a Low risk customer use V-CIP to open an account, and can they use a digital driving license from Digilocker?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "I'm a Designated Person. Do I need to disclose my spouse's PAN, and do I have to submit their brokerage statements?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "If we get an inward cross-border wire without an address, we hold it and ask for info within 3 days. What happens if they send the info on the 4th day?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "Is a dealer in precious metals categorized as High risk, and do we need to inspect their physical store?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Does the personal dealing policy cover trades in the Bank's derivatives, and does it cover options on NIFTY index?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "If a PEP sends an outward cross-border remittance, does the Chief Compliance Officer need to approve it, and do we have to report it to the FIU?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "How long do we keep V-CIP session recordings, and must they be stored on on-premise servers?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Can a non-investment banking employee trade a restricted list stock for Rs 50,000 with pre-clearance, and can they use a margin account for it?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "If a fuzzy match score is 90, do we hold the transfer automatically, and what OFAC screening software are we using?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "A High risk customer's KYC must be updated every 18 months, but what happens if they refuse to answer our calls during updation?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "If a Designated Person executes a contra trade within 4 months, the profits are disgorged to SEBI's IPEF. But what if they took a loss?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "Does a wire transfer to a FATF 'Call for Action' jurisdiction get prohibited, and what if it's for a humanitarian charity?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "If a customer deposits Rs 55,000 cash, we need their PAN. Can they provide an e-PAN downloaded today?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "When the trading window is closed for quarterly results, does it reopen 48 hours after declaration, and when exactly does it close before the quarter ends?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "Is an internal alert required within 1 working day for a suspicious wire transfer, and do we notify the remitting bank?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "If a company submits a board resolution for account opening, do we also need a certificate of incumbency?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Does a first violation of the personal dealing policy result in a Rs 50,000 penalty, and do we dock their bonus too?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "For a New Relationship Customer sending Rs 8,00,000 domestically, the Branch Ops Manager must review it within 4 hours. What if the manager is on leave?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "Are partnership firms automatically categorised as Medium risk, and what is the specific risk score for a manufacturing firm?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Must a trading plan under SEBI rules have a 120-day cool-off period, and can it be submitted via email?", "expected": "partial", "doc_id": "sebi_pit_regulations"}
+{"question": "Do PML rules require reporting all cash transactions above ten lakhs rupees, and must it be filed on a specific portal?", "expected": "partial", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Is 'initiation of forensic audit' considered UPSI, and does the auditor have to be Big 4?", "expected": "partial", "doc_id": "sebi_pit_regulations"}
+{"question": "If a customer submits proof of possession of Aadhaar for offline verification, do we need to verify it with UIDAI's API directly?", "expected": "partial", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Can an insider deviate from a trading plan due to bankruptcy, and do they have to provide court documents?", "expected": "partial", "doc_id": "sebi_pit_regulations"}
+{"question": "If a customer splits cash deposits into amounts just below Rs 50,000, is it a red flag, and do we freeze the account immediately?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Does the Principal Officer have 5 working days to decide on filing an STR, and do they need CEO approval?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "Can a Low risk customer confirm no change in KYC via mobile banking, and can they use SMS?", "expected": "partial", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Is a director of the Bank considered a Designated Person, and do they have to declare their crypto holdings?", "expected": "partial", "doc_id": "fb_personal_dealing_policy"}
+{"question": "Are wire records retained for 8 years, and are they stored on physical servers?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "I am a branch auditor. For a high-risk individual customer onboarded on Jan 1, 2024, by what date must we complete their periodic KYC updation according to our internal rules versus the RBI master direction?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "As a relationship manager, I have a medium-risk corporate client asking when their next KYC refresh is due. How does the bank's internal SOP timeline differ from the RBI's baseline requirement?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "A low-risk retail customer opened an account 9 years ago. The RBI says we have 10 years for updation, but our branch officer says their account is due for refresh now. Who is correct based on the library?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "We are closing a branch and archiving old files. How long must we retain the customer identification files and transaction records for a closed account under the RBI mandate compared to the Bank's CDD SOP?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "A new high-risk client wants to open an account remotely via V-CIP to save time. RBI guidelines mention V-CIP for new individuals. Can we proceed under Factualis Bank's internal rules?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "We are onboarding a foreign diplomat (a Politically Exposed Person). The RBI requires 'senior management' approval. Under the Bank's CDD SOP, whose explicit approval must I obtain?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Our operations desk is processing an outward cross-border remittance for a PEP for USD 5,000. Does this require any special approval beyond the RBI's standard enhanced due diligence?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "A customer's KYC updation is overdue by 100 days. The RBI master direction talks about 'temporarily ceasing operations'. How does the Factualis CDD SOP specify we handle the freezing of this account?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "I'm a compliance analyst reviewing wire transfer records from 2019. The RBI requires a 5-year retention, but the bank's wire SOP mentions a different timeframe. Which applies?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "A customer flagged as 'High Risk' is trying to open a savings account. Who needs to approve this onboarding according to RBI versus the bank's internal CDD policy?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "A new relationship customer initiated a domestic NEFT for Rs 8,00,000. The RBI mandates originator/beneficiary info for wires over 50k. What additional control does our SOP require before release?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "If an existing customer becomes a PEP, the RBI says we need senior management approval to continue the relationship. Does the Factualis SOP impose a specific timeframe to secure this approval?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "A walk-in customer wants to buy a demand draft for Rs. 60,000 with cash. Is this permitted under the RBI Master Direction?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "We opened an account using Aadhaar OTP-based e-KYC. What is the maximum aggregate balance allowed in this account before full CDD is completed?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "As a new joiner, I need to know: what is the threshold for determining the beneficial owner of a company under the RBI directions?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "For a partnership firm, what documents are mandated by the RBI to verify the entity's legal existence?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "If a customer submits a utility bill as proof of address because their Officially Valid Document is outdated, within how many months must they submit the updated OVD?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "I am opening a Small Account for a customer without an OVD. What are the monthly withdrawal and transfer limits for this type of account?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "Can a foreign student with Pakistani nationality open an NRO account without prior approval from the Reserve Bank?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "According to the RBI, how quickly must the bank upload a new individual customer's KYC data to the Central KYC Records Registry (CKYCR)?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "Under the bank's wire SOP, if we receive an inward cross-border wire missing the originator's address, how long do we give the remitting bank to provide it before returning the transfer?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "A wire transfer is destined for a FATF 'Call for Action' jurisdiction. What does the bank's wire SOP say about processing this?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "An employee suspects a wire transfer is linked to money laundering. Under the SOP, how quickly must they raise an internal alert to the Financial Crime Compliance Department?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "For a customer classified as 'Medium Risk' based on their Rs 60,00,000 expected turnover, can the system's risk rating be manually lowered by a branch manager?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "A corporate client wants to open a current account. Under the CDD SOP, who is considered a beneficial owner for a company?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "A retail customer deposits Rs 45,000 in cash four times in a 5-day period. Does the CDD SOP consider this a red flag, and if so, when must it be reported?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "We are onboarding a trust. According to the RBI directions, what percentage of interest defines a beneficiary for a trust account?", "expected": "answerable", "doc_id": "pml_maintenance_of_records_rules"}
+{"question": "What is the penalty for an approving official if they onboard a high-risk customer without the required Zonal Compliance Head approval under the CDD SOP?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "A V-CIP session drops after 4 minutes of interaction. According to the CDD SOP, can the agent resume the session, or must it be treated as unsuccessful?", "expected": "answerable", "doc_id": "fb_cdd_risk_sop"}
+{"question": "Under the RBI master direction, if a customer refuses to provide their PAN and does not submit Form 60, what action must the bank take regarding an existing account?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "If a true match is confirmed against the Internal Watchlist only, does the Factualis SOP require the funds to be frozen?", "expected": "answerable", "doc_id": "fb_aml_wire_sop"}
+{"question": "Under the RBI Master Direction, is a bank permitted to open a 'pooled' account managed by a professional intermediary on behalf of a mutual fund?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "To fulfill the RBI mandate on WMD Act compliance, who is designated as the Central Nodal Officer (CNO)?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "For a sole proprietary firm, what documents can serve as proof of business according to the RBI Master Direction?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "If a customer submits an Aadhaar number for e-KYC authentication, must the bank ensure the customer redacts the Aadhaar digits under the RBI guidelines?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "Does the RBI Master Direction permit the bank to rely on customer due diligence carried out by a third party?", "expected": "answerable", "doc_id": "rbi_kyc_master_direction"}
+{"question": "What is the standard interest rate offered on a Small Account opened under the RBI KYC Master Direction?", "expected": "trap", "doc_id": ""}
+{"question": "Which specific SWIFT MT message field must contain the originator's date of birth for cross-border wires over USD 15,000?", "expected": "trap", "doc_id": ""}
+{"question": "What is the maximum daily ATM withdrawal limit for a Medium Risk customer under the Bank's CDD policy?", "expected": "trap", "doc_id": ""}
+{"question": "If a customer uses Bitcoin to fund their international wire transfer, what exchange rate does the SOP mandate?", "expected": "trap", "doc_id": ""}
+{"question": "What is the penalty fee charged to the customer if their periodic KYC updation is delayed by more than 180 days?", "expected": "trap", "doc_id": ""}
+{"question": "How much does Factualis Bank charge for executing an outward cross-border remittance to a FATF 'Increased Monitoring' jurisdiction?", "expected": "trap", "doc_id": ""}
+{"question": "Which external credit rating agency does the bank use to evaluate the risk score of corporate entities before onboarding?", "expected": "trap", "doc_id": ""}
+{"question": "What is the required withholding tax rate under FATCA for a US citizen opening a savings account at Factualis Bank?", "expected": "trap", "doc_id": ""}
+{"question": "Can a customer trade in crypto-assets using a Factualis Bank current account if they provide a Form 60 instead of a PAN?", "expected": "trap", "doc_id": ""}
+{"question": "Under the RBI KYC direction, what is the exact minimum pixel resolution required for the camera during a V-CIP session?", "expected": "trap", "doc_id": ""}
+{"question": "Are PEPs eligible for premium platinum credit cards under the Factualis CDD risk categorization framework?", "expected": "trap", "doc_id": ""}
+{"question": "What specific clearing house code must be attached to a domestic NEFT transfer initiated by a New Relationship Customer?", "expected": "trap", "doc_id": ""}
+{"question": "Does the RBI mandate specific biometric fingerprint scanners for verifying Aadhaar offline?", "expected": "trap", "doc_id": ""}
+{"question": "What is the commission percentage earned by Business Correspondents (BCs) when they facilitate V-CIP onboarding?", "expected": "trap", "doc_id": ""}
+{"question": "If a wire transfer is blocked due to a UAPA match, into which specific suspense account ledger must the funds be moved?", "expected": "trap", "doc_id": ""}
+{"question": "Which version of the UN Security Council API does the bank use to screen cross-border wires?", "expected": "trap", "doc_id": ""}
+{"question": "How many days of grace period does the bank offer before a loan account is classified as NPA if KYC is incomplete?", "expected": "trap", "doc_id": ""}
+{"question": "Does the RBI allow Foreign Portfolio Investors (FPIs) to bypass income tax filings if they submit a Global Custodian PoA?", "expected": "trap", "doc_id": ""}
+{"question": "What is the maximum allowed LTV (Loan to Value) ratio for a mortgage granted to a High Risk customer?", "expected": "trap", "doc_id": ""}
+{"question": "Under the Bank's personal dealing policy, can an employee buy options on Sovereign Gold Bonds during the blackout period?", "expected": "trap", "doc_id": ""}
+{"question": "Under the RBI Master Direction, when must a bank upload a new customer's data to CKYCR, and what is the URL of the CERSAI portal to do so?", "expected": "partial", "doc_id": "rbi_kyc_master_direction"}
+{"question": "What is the maximum aggregate balance allowed in an Aadhaar OTP-based e-KYC account, and what is the interest rate applied if the limit is breached?", "expected": "partial", "doc_id": "rbi_kyc_master_direction"}
+{"question": "For a PEP, the Factualis SOP requires outward cross-border wires to be approved by the CCO. What is the CCO's email address for submitting these escalations?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "The RBI requires monitoring of multi-level marketing (MLM) companies. Which specific MLM companies are currently banned by Factualis Bank?", "expected": "partial", "doc_id": "rbi_kyc_master_direction"}
+{"question": "A customer wants to open an account using a NREGA job card. Is this an acceptable OVD under RBI rules, and what is the minimum deposit required to activate the account?", "expected": "partial", "doc_id": "rbi_kyc_master_direction"}
+{"question": "Our SOP requires a Level-2 Sanctions Desk analyst to release a wire on hold within 24 hours. What software platform does the Sanctions Desk use to perform this release?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "Under RBI guidelines, we can accept a driving licence as an OVD. Do we accept international driving permits issued by the EU?", "expected": "partial", "doc_id": "sebi_pit_regulations"}
+{"question": "How long must we retain the video recording of a V-CIP session under the CDD SOP, and which cloud service provider stores these recordings?", "expected": "partial", "doc_id": "rbi_kyc_master_direction"}
+{"question": "The wire SOP states that transactions with FATF 'Call for Action' jurisdictions are prohibited. Are there any exceptions made for humanitarian aid organizations?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}
+{"question": "When filing a Suspicious Transaction Report to FIU-IND, the RBI requires prompt submission. What is the maximum file size for the XML submission on the FIU portal?", "expected": "partial", "doc_id": "fb_aml_wire_sop"}

@@ -1,0 +1,72 @@
+FACTUALIS BANK LIMITED (FICTIONAL ENTITY - HACKATHON DEMONSTRATION DOCUMENT)
+STANDARD OPERATING PROCEDURE: WIRE TRANSFERS AND SANCTIONS SCREENING
+Document ID: FB-AML-WIRE-SOP | Version 4.1 | Effective date: 01 April 2026
+Owner: Financial Crime Compliance Department | Approved by: Board Risk Committee
+
+1. PURPOSE AND SCOPE
+1.1 This SOP sets out the controls the Bank applies to domestic and cross-border wire transfers originated or received by Factualis Bank Limited, and to the screening of such transfers against sanctions lists.
+1.2 This SOP applies to NEFT, RTGS and IMPS transfers, and to outward and inward cross-border remittances processed through the Bank's Treasury Operations unit.
+1.3 This SOP does not apply to correspondent banking relationships, virtual digital asset transfers, card network settlements, or trade finance transactions such as letters of credit. These are governed by separate policies that are not part of this SOP.
+1.4 Where this SOP is stricter than any applicable regulation, the stricter requirement of this SOP shall prevail.
+
+2. DEFINITIONS
+2.1 "Head of Financial Crime Compliance" or "HFCC" means the officer designated by the Board to head the Financial Crime Compliance Department.
+2.2 "Principal Officer" means the officer designated by the Bank under the Prevention of Money-laundering Act, 2002 for furnishing information to FIU-IND.
+2.3 "New Relationship Customer" means a customer whose first account with the Bank was opened less than 180 days before the date of the transfer.
+2.4 "Internal Watchlist" or "IWL" means the list of names maintained by the Financial Crime Compliance Department on the basis of past alerts, law enforcement requests and adverse media.
+2.5 "Working hours" means 09:30 to 17:30 IST on a day on which the Bank's head office is open for business.
+
+3. ORIGINATOR AND BENEFICIARY INFORMATION
+3.1 Every domestic wire transfer shall carry the name, account number and IFSC of both the originator and the beneficiary.
+3.2 Every cross-border wire transfer of Rs. 25,000 and above, or its equivalent in foreign currency, shall additionally carry the originator's address, date of birth and the purpose code of the remittance.
+3.3 A cross-border wire transfer that is received without complete originator information shall be placed on hold, and the remitting bank shall be asked to supply the missing information within 3 working days. If the information is not received within that period, the transfer shall be returned to the remitting bank.
+3.4 Repeated receipt of incomplete transfers from the same remitting bank, being three or more instances in a calendar month, shall be reported to the HFCC.
+
+4. TRANSACTION THRESHOLDS AND APPROVALS
+4.1 A domestic wire transfer by a New Relationship Customer for an amount exceeding Rs. 7,50,000 in a single transaction shall be subject to second-level review by the Branch Operations Manager before release.
+4.2 The second-level review under clause 4.1 shall be completed within 4 working hours of the transfer request. If the review is not completed within that time, the transfer shall be escalated to the Regional Operations Head.
+4.3 An outward cross-border remittance exceeding USD 15,000, or its equivalent in any other currency, shall require the prior approval of the HFCC.
+4.4 Outward cross-border remittances by the same customer that aggregate to more than USD 40,000 within any rolling period of 30 days shall be referred to the HFCC for review, even if no single remittance exceeds the limit in clause 4.3.
+4.5 The thresholds in this Section 4 do not apply to transfers involving jurisdictions covered by Section 6 or customers covered by Section 7, which are subject to the stricter requirements of those Sections.
+
+5. SANCTIONS SCREENING
+5.1 Every wire transfer shall be screened, before release, against (a) the United Nations Security Council consolidated sanctions list, (b) the lists notified by the Ministry of Home Affairs under section 51A of the Unlawful Activities (Prevention) Act, 1967, and (c) the Bank's Internal Watchlist.
+5.2 A screening match with a fuzzy match score of 85 or above shall result in the transfer being placed on hold automatically.
+5.3 A transfer placed on hold under clause 5.2 may be released only by a Level-2 analyst of the Sanctions Desk, and the decision shall be recorded within 24 hours of the hold.
+5.4 Where the Level-2 analyst confirms a true match against a list referred to in clause 5.1(a) or 5.1(b), the funds shall be frozen without delay and the matter shall be reported to the Principal Officer within 2 hours of confirmation.
+5.5 A true match against the Internal Watchlist only shall not by itself result in a freeze, but the transfer shall be treated as a high-risk transaction requiring HFCC approval.
+5.6 Screening thresholds and list sources may be changed only with the written approval of the Chief Compliance Officer.
+
+6. HIGH-RISK JURISDICTIONS
+6.1 Wire transfers to or from any jurisdiction identified by FATF as a "High-Risk Jurisdiction subject to a Call for Action" are prohibited.
+6.2 Wire transfers of any amount to or from a jurisdiction identified by FATF as a "Jurisdiction under Increased Monitoring" shall be subject to enhanced due diligence and shall require the prior approval of the HFCC.
+6.3 The Financial Crime Compliance Department shall update the list of jurisdictions under this Section within 5 working days of each FATF plenary publication.
+
+7. POLITICALLY EXPOSED PERSONS
+7.1 Every wire transfer of any amount originated by or received for a Politically Exposed Person (PEP), a family member of a PEP, or a close associate of a PEP shall be subject to enhanced due diligence.
+7.2 An outward cross-border remittance by a PEP shall require the prior approval of the Chief Compliance Officer, irrespective of the amount.
+7.3 Notwithstanding clause 7.1, domestic salary or pension credits received by a PEP from a government department, for an amount not exceeding Rs. 2,00,000 per month, are exempt from per-transaction enhanced due diligence. Such credits shall instead be reviewed in the annual PEP account review.
+
+8. SUSPICIOUS TRANSACTION ESCALATION
+8.1 Any employee who suspects that a wire transfer may involve the proceeds of crime shall raise an internal alert to the Financial Crime Compliance Department within 1 working day of forming the suspicion.
+8.2 The Financial Crime Compliance Department shall complete its investigation of an internal alert and submit its recommendation to the Principal Officer within 2 working days of receiving the alert.
+8.3 The Principal Officer shall decide whether to file a Suspicious Transaction Report with FIU-IND within 5 working days of receiving the recommendation.
+8.4 No employee shall disclose to the customer, or to any other person, that an internal alert has been raised or that a Suspicious Transaction Report is being considered or has been filed.
+
+9. RECORD RETENTION
+9.1 Records of all wire transfers, including screening results and the reasons for releasing any held transfer, shall be retained for a period of 8 years from the date of the transaction.
+9.2 Where a record relates to a transaction that is the subject of an investigation or a Suspicious Transaction Report, it shall be retained until the investigation is closed or for 8 years, whichever is later.
+
+10. BREACHES AND DISCIPLINARY ACTION
+10.1 Releasing a transfer that required an approval under Sections 4, 5, 6 or 7 without obtaining that approval shall be treated as a Category-A breach.
+10.2 A Category-A breach shall be reported to the Board Risk Committee within 7 days and shall attract disciplinary action under the Bank's Staff Conduct Code, which may include suspension.
+10.3 A failure to complete a review within the time limits in this SOP, where the transfer was not released, shall be treated as a Category-B breach and recorded in the staff member's annual performance assessment.
+
+ANNEXURE A - SUMMARY OF WIRE TRANSFER APPROVAL LIMITS
+Domestic transfer by New Relationship Customer, single transaction above Rs. 7,50,000: Branch Operations Manager review within 4 working hours.
+Outward cross-border remittance, single transaction above USD 15,000: HFCC prior approval.
+Outward cross-border remittances aggregating above USD 40,000 in rolling 30 days: HFCC review.
+Any transfer involving a FATF Increased Monitoring jurisdiction: enhanced due diligence and HFCC prior approval.
+Any transfer involving a FATF Call for Action jurisdiction: prohibited.
+Outward cross-border remittance by a PEP, any amount: Chief Compliance Officer prior approval.
+Sanctions screening hold, match score 85 or above: release only by Sanctions Desk Level-2 analyst within 24 hours.

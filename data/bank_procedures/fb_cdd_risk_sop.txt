@@ -1,0 +1,61 @@
+FACTUALIS BANK LIMITED (FICTIONAL ENTITY - HACKATHON DEMONSTRATION DOCUMENT)
+STANDARD OPERATING PROCEDURE: CUSTOMER DUE DILIGENCE AND RISK CATEGORISATION
+Document ID: FB-CDD-SOP | Version 3.0 | Effective date: 01 April 2026
+Owner: Financial Crime Compliance Department | Approved by: Board Risk Committee
+
+1. PURPOSE AND SCOPE
+1.1 This SOP describes how Factualis Bank Limited identifies and verifies its customers, assigns them a money-laundering risk category, and keeps their information up to date.
+1.2 This SOP applies to individual customers, sole proprietorships, partnership firms and companies that open savings, current or term deposit accounts with the Bank.
+1.3 This SOP does not cover accounts of minors, accounts of trusts and foundations, or accounts opened for non-resident Indians. Those accounts are governed by the Bank's Special Accounts Policy, which is not part of this SOP.
+1.4 This SOP shall be read together with the Master Direction - Know Your Customer (KYC) Direction, 2016 issued by the Reserve Bank of India. Where this SOP is stricter, this SOP shall prevail.
+
+2. CUSTOMER RISK CATEGORIES
+2.1 Every customer shall be assigned one of three risk categories at onboarding: Low, Medium or High.
+2.2 A customer shall be categorised as High risk if any of the following applies: (a) the customer is a Politically Exposed Person or a family member or close associate of one; (b) the customer's expected annual credit turnover exceeds Rs. 5,00,00,000; (c) the customer has a registered address in a FATF Jurisdiction under Increased Monitoring; (d) the customer is a dealer in precious metals, precious stones or high-value art; or (e) the Financial Crime Compliance Department has directed High risk categorisation.
+2.3 A customer shall be categorised as Medium risk if the customer is not High risk and either (a) the customer's expected annual credit turnover exceeds Rs. 50,00,000, or (b) the customer is a partnership firm or a company.
+2.4 All other customers shall be categorised as Low risk.
+2.5 The risk category assigned by the system may be lowered only with the written approval of the Zonal Compliance Head, and the reason shall be recorded in the customer file.
+
+3. IDENTIFICATION DOCUMENTS
+3.1 An individual customer shall submit a Permanent Account Number (PAN) card or Form 60, and one Officially Valid Document for proof of identity and address.
+3.2 For the purposes of this SOP, the Officially Valid Documents accepted by the Bank are the passport, the driving licence, the proof of possession of Aadhaar number, the Voter's Identity Card issued by the Election Commission of India, and the job card issued by NREGA duly signed by an officer of the State Government.
+3.3 A company shall submit its certificate of incorporation, memorandum and articles of association, PAN, a board resolution authorising the account opening, and the identification documents of every beneficial owner.
+3.4 For a company, a beneficial owner is any natural person who, whether acting alone or together, owns or is entitled to more than 10 percent of the shares or capital or profits of the company.
+3.5 For a partnership firm, a beneficial owner is any natural person who owns or is entitled to more than 10 percent of the capital or profits of the partnership.
+
+4. VERIFICATION CHANNELS
+4.1 Low risk and Medium risk individual customers may be onboarded through the Bank's Video-based Customer Identification Process (V-CIP).
+4.2 High risk customers shall be onboarded only through in-person verification at a branch, and V-CIP shall not be used for them.
+4.3 A V-CIP session shall be conducted only by an official of the Bank who has completed the V-CIP certification programme, and the session recording shall be retained for 8 years.
+4.4 A V-CIP session shall be terminated and treated as unsuccessful if the customer's live image does not match the photograph on the identification document, or if the session is interrupted for more than 3 minutes.
+
+5. ONBOARDING APPROVALS
+5.1 Onboarding of a High risk customer shall require the approval of the Zonal Compliance Head.
+5.2 Onboarding of a Politically Exposed Person shall require the approval of the Chief Compliance Officer. This approval is in addition to, and not a substitute for, the approval required under clause 5.1.
+5.3 Where an existing customer becomes a Politically Exposed Person, the relationship may continue only with the approval of the Chief Compliance Officer obtained within 30 days of the Bank becoming aware of the change.
+5.4 The Bank shall not open an account where it is unable to apply appropriate customer due diligence measures, or where the customer refuses to provide the documents required by Section 3.
+
+6. PERIODIC UPDATION OF KYC
+6.1 KYC information shall be updated at least once every 18 months for High risk customers, once every 6 years for Medium risk customers, and once every 9 years for Low risk customers.
+6.2 The period under clause 6.1 shall be counted from the date of account opening or the date of the last KYC updation, whichever is later.
+6.3 Where there is no change in KYC information, a Low risk individual customer may confirm this through a self-declaration submitted through the Bank's internet banking, mobile banking or registered email.
+6.4 If periodic updation is not completed within 90 days after it falls due, the account shall be partially frozen so that debits are not allowed, while credits continue to be allowed.
+6.5 A partial freeze under clause 6.4 shall be removed within 2 working days of the customer completing the KYC updation.
+
+7. CASH TRANSACTION MONITORING
+7.1 PAN or Form 60 shall be obtained for every cash deposit of Rs. 50,000 and above in a single transaction.
+7.2 Cash deposits into a savings account that aggregate to Rs. 9,00,000 or more in a calendar month shall generate an alert to the Financial Crime Compliance Department.
+7.3 Cash deposits into a current account that aggregate to Rs. 25,00,000 or more in a calendar month shall generate an alert to the Financial Crime Compliance Department.
+7.4 An alert under clause 7.2 or 7.3 shall be reviewed within 5 working days, and the review outcome shall be recorded in the case management system.
+7.5 Splitting of cash deposits by a customer into amounts just below Rs. 50,000 on three or more occasions within 7 days shall be treated as a red flag and reported to the Financial Crime Compliance Department within 1 working day.
+
+8. RECORD KEEPING AND BREACHES
+8.1 Customer identification records and the customer file shall be retained for 8 years after the business relationship has ended or the account has been closed, whichever is later.
+8.2 Onboarding a customer without an approval required under Section 5 shall be treated as a Category-A breach under the Bank's Staff Conduct Code.
+8.3 A Category-A breach under this SOP shall attract a monetary penalty of Rs. 25,000 on the approving official, in addition to any disciplinary action.
+
+ANNEXURE A - KYC UPDATION PERIODICITY
+High risk customer: at least once every 18 months.
+Medium risk customer: at least once every 6 years.
+Low risk customer: at least once every 9 years.
+Updation overdue by more than 90 days: partial freeze (no debits, credits allowed).

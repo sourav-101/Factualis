@@ -1,0 +1,12 @@
+output/
+checkpoints/
+__pycache__/
+*.pyc
+.venv/
+dist/
+*.bak
+*.review.md
+.pytest_cache/
+docs/demo_video_script.md
+docs/screenshots/*.tmp
+docs/demo_video_script.pdf

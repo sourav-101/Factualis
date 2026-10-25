@@ -1,0 +1,12 @@
+{
+  "pml_maintenance_of_records_rules": {
+    "url": "existing file (expected source: https://dor.gov.in/files/rules_files/2005.pdf)",
+    "bytes": 690688,
+    "sha256": "c09b7de9388a9eaafdf994de0273824714d60150a6c33442667219837c5f50c5"
+  },
+  "sebi_pit_regulations": {
+    "url": "existing file (expected source: https://www.sebi.gov.in/sebi_data/attachdocs/aug-2026/1786963663321.pdf)",
+    "bytes": 1144648,
+    "sha256": "3e14632093a11d5ced286205c744c7bec68df9c261cb8dcd6017b477e285f4b1"
+  }
+}

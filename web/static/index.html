@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factualis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.5"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'], serif: ['"Source Serif 4"', 'Georgia', 'serif'], mono: ['JetBrains Mono', 'ui-monospace'] },
+    colors: {
+      navy: { 50:'#f1f4f8', 100:'#e1e7ef', 300:'#9fb0c6', 500:'#3d5a80', 700:'#1e3a5f', 800:'#172e4b', 900:'#10213a' },
+      paper: '#f8f7f4', ink: '#1c1917', rule: '#e7e5e0',
+    },
+    keyframes: { rise: { '0%': { opacity: 0, transform: 'translateY(6px)' }, '100%': { opacity: 1, transform: 'none' } } },
+    animation: { rise: 'rise .3s ease-out both' },
+  } } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #f8f7f4; }
+  .skeleton { position: relative; overflow: hidden; background: #efede8; border-radius: 4px; }
+  .skeleton::after { content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); animation: shimmer 1.4s infinite; }
+  @keyframes shimmer { 100% { transform: translateX(100%); } }
+  mark { background: #fbeec1; color: inherit; padding: 0 1px; }
+  .clause { white-space: pre-wrap; }
+  ::selection { background: #e1e7ef; }
+</style>
+</head>
+<body class="font-sans text-ink antialiased" x-data="factualis()" x-init="init()" @keydown.escape.window="drawer = false">
+
+  <header class="sticky top-0 z-30 border-b border-rule bg-white/95 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-3.5">
+      <div class="flex items-center gap-4">
+        <span class="font-serif text-[22px] font-semibold tracking-[0.18em] text-navy-900">FACTUALIS</span>
+        <span class="hidden h-5 w-px bg-rule sm:block"></span>
+        <span class="hidden text-[13px] text-stone-500 sm:block">Policy answers you can check</span>
+      </div>
+      <div class="flex items-center gap-2.5 text-sm text-stone-600">
+        <span class="cursor-pointer select-none" @click="verified = !verified">Verified mode</span>
+        <button type="button" role="switch" :aria-checked="verified" @click="verified = !verified"
+          title="Hold back any answer that contains a quote or figure not found in the policy"
+          :class="verified ? 'bg-navy-700' : 'bg-stone-300'" class="relative h-[22px] w-10 rounded-full transition-colors duration-200">
+          <span :class="verified ? 'translate-x-[18px]' : 'translate-x-0'" class="absolute left-[3px] top-[3px] h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="pointer-events-none fixed inset-x-0 top-16 z-40 flex justify-center px-4">
+    <div x-show="toast" x-cloak x-transition.opacity.duration.200ms class="rounded-md bg-navy-900 px-4 py-2 text-[13px] text-white shadow-lg" x-text="toast"></div>
+  </div>
+
+  <main class="mx-auto max-w-3xl px-5 pb-24 pt-14">
+    <div class="mb-10 rounded-lg border border-rule bg-white px-5 py-4" x-data="{ open: false }">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-rule bg-paper font-serif text-[15px] font-semibold text-navy-800">FB</div>
+          <div>
+            <p class="text-[14px] font-semibold text-ink">Factualis Bank · Compliance desk</p>
+            <p class="text-[12.5px] text-stone-500">A fictional Indian bank, created for this demo. You are asking its policy library.</p>
+          </div>
+        </div>
+        <button @click="open = !open" class="text-[13px] text-navy-700 underline-offset-2 hover:underline" x-text="open ? 'Hide documents' : 'What does it cover? (6 documents)'"></button>
+      </div>
+      <div x-show="open" x-transition.opacity x-cloak class="mt-4 grid gap-x-6 gap-y-3 border-t border-rule pt-4 sm:grid-cols-2">
+        <template x-for="d in library" :key="d.name">
+          <div>
+            <p class="text-[13px] font-medium text-ink"><span x-text="d.name"></span> <span class="ml-1 text-[11px] font-normal uppercase tracking-wide text-stone-400" x-text="d.kind"></span></p>
+            <p class="text-[12.5px] leading-snug text-stone-500" x-text="d.about"></p>
+          </div>
+        </template>
+        <p class="text-[12px] text-stone-400 sm:col-span-2">Questions outside these documents are answered with “No answer in policy”, never with a guess.</p>
+      </div>
+    </div>
+
+    <div class="mb-8 text-center">
+      <h1 class="font-serif text-[36px] font-semibold leading-tight text-ink sm:text-[42px]">What do you need to check?</h1>
+      <p class="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-stone-500">Ask about Factualis Bank's KYC, anti-money-laundering, wire transfer or employee trading rules. Every answer quotes the exact clause and is checked against it.</p>
+    </div>
+
+    <form @submit.prevent="submit()" class="rounded-lg border border-rule bg-white transition focus-within:border-navy-500 focus-within:shadow-[0_0_0_3px_rgba(61,90,128,0.12)]">
+      <textarea x-ref="q" x-model="question" rows="3" @keydown.ctrl.enter.prevent="submit()" @keydown.meta.enter.prevent="submit()"
+        placeholder="e.g. Can we release a Rs. 8 lakh NEFT for a customer who joined last month?"
+        class="block w-full resize-none rounded-lg border-0 bg-transparent px-5 pt-4 text-[15px] leading-relaxed text-ink placeholder:text-stone-400 focus:outline-none focus:ring-0"></textarea>
+      <div class="flex items-center justify-between gap-3 px-4 pb-3 pt-1">
+        <span class="hidden text-xs text-stone-400 sm:block"><kbd class="rounded border border-rule bg-paper px-1.5 py-0.5 font-mono text-[11px]">Ctrl</kbd> + <kbd class="rounded border border-rule bg-paper px-1.5 py-0.5 font-mono text-[11px]">Enter</kbd> to ask</span>
+        <div class="flex items-center gap-2 sm:ml-auto">
+          <button type="button" x-show="question || result" x-cloak @click="reset()" class="rounded-md px-3 py-2 text-sm text-stone-500 transition hover:text-ink">Clear</button>
+          <button type="submit" :disabled="loading || !question.trim()"
+            class="rounded-md bg-navy-700 px-5 py-2 text-sm font-medium text-white transition hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-40"
+            x-text="loading ? 'Working…' : 'Get answer'"></button>
+        </div>
+      </div>
+    </form>
+
+    <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-[13px]">
+      <span class="text-stone-400">Try:</span>
+      <template x-for="ex in examples" :key="ex.label">
+        <button type="button" @click="question = ex.question; submit()" :disabled="loading"
+          class="rounded-md border border-rule bg-white px-3 py-1.5 text-stone-600 transition hover:border-navy-500 hover:text-navy-700 disabled:opacity-50" x-text="ex.label"></button>
+      </template>
+    </div>
+
+    <div class="mt-3 text-center text-[12.5px]" x-data="{ adv: false }">
+      <button @click="adv = !adv" class="text-stone-400 underline-offset-2 hover:text-stone-600 hover:underline" x-text="adv ? 'Hide advanced' : 'Advanced'"></button>
+      <div x-show="adv" x-transition.opacity x-cloak class="mx-auto mt-3 flex max-w-xl items-start gap-3 rounded-lg border border-rule bg-white px-4 py-3 text-left">
+        <button type="button" role="switch" :aria-checked="constrained" @click="constrained = !constrained"
+          :class="constrained ? 'bg-navy-700' : 'bg-stone-300'" class="relative mt-0.5 h-[22px] w-10 shrink-0 rounded-full transition-colors duration-200">
+          <span :class="constrained ? 'translate-x-[18px]' : 'translate-x-0'" class="absolute left-[3px] top-[3px] h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200"></span>
+        </button>
+        <div>
+          <p class="font-medium text-ink">Structured output (SGLang XGrammar) · <span x-text="constrained ? 'on' : 'off'"></span></p>
+          <p class="mt-0.5 leading-snug text-stone-500">SGLang forces every reply into the answer format token by token. Turn it off and ask again to see the raw output: it usually can't be parsed or checked.</p>
+        </div>
+      </div>
+    </div>
+
+    <div x-show="error" x-cloak x-transition class="mt-8 rounded-lg border border-red-200 bg-white px-5 py-4 text-sm text-red-700" x-text="error"></div>
+
+    <div x-show="loading" x-cloak class="mt-10 rounded-lg border border-rule bg-white p-6">
+      <ol class="mb-6 space-y-2.5">
+        <template x-for="(s, i) in stages" :key="i">
+          <li class="flex items-center gap-3 text-sm" :class="i < stage ? 'text-stone-400' : (i === stage ? 'text-ink' : 'text-stone-300')">
+            <span class="grid h-[18px] w-[18px] place-items-center rounded-full border" :class="i < stage ? 'border-navy-700 bg-navy-700 text-white' : (i === stage ? 'border-navy-500' : 'border-rule')">
+              <svg x-show="i < stage" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>
+              <span x-show="i === stage" class="h-1.5 w-1.5 animate-pulse rounded-full bg-navy-500"></span>
+            </span>
+            <span x-text="s"></span>
+          </li>
+        </template>
+      </ol>
+      <div class="space-y-3"><div class="skeleton h-6 w-1/2"></div><div class="skeleton h-4 w-full"></div><div class="skeleton h-4 w-11/12"></div><div class="skeleton h-4 w-2/3"></div></div>
+    </div>
+
+    <template x-if="result && !loading">
+      <section class="mt-10 animate-rise">
+        <div class="mb-3 flex items-center justify-between">
+          <h2 class="text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">Answer</h2>
+          <div x-show="result.before_training" class="inline-flex rounded-md border border-rule bg-white p-0.5 text-[13px]">
+            <button @click="view = 'after'; reveal = false" :class="view === 'after' ? 'bg-navy-700 text-white' : 'text-stone-500 hover:text-ink'" class="rounded px-3 py-1 transition">Factualis</button>
+            <button @click="view = 'before'; reveal = false" :class="view === 'before' ? 'bg-navy-700 text-white' : 'text-stone-500 hover:text-ink'" class="rounded px-3 py-1 transition">Before training</button>
+          </div>
+        </div>
+
+        <template x-if="card()">
+          <div>
+            <div x-show="held()" class="rounded-lg border border-red-200 bg-white p-6">
+              <p class="font-serif text-[22px] font-semibold text-ink">Held for human review</p>
+              <p class="mt-2 text-sm leading-relaxed text-stone-600">Verified mode is on. <span x-text="card().checks_total - card().checks_passed"></span> statement(s) in this answer could not be found in the policy documents, so it is not given as an answer.</p>
+              <button @click="reveal = true" class="mt-4 text-sm font-medium text-navy-700 underline-offset-2 hover:underline">Show the unverified answer</button>
+            </div>
+
+            <div x-show="!card().valid" class="rounded-lg border border-rule bg-white p-6">
+              <p class="font-serif text-[22px] font-semibold text-ink">No usable answer</p>
+              <p class="mt-2 text-sm leading-relaxed text-stone-600">The model's reply is not in the required format, so it cannot be checked against the policy.
+                <span x-show="!constrained">Structured output is off; switch it back on under Advanced.</span></p>
+              <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">Raw model output</p>
+              <pre class="mt-2 max-h-64 overflow-auto whitespace-pre-wrap rounded-md border border-rule bg-paper p-3 font-mono text-[12px] text-stone-600" x-text="card().raw"></pre>
+            </div>
+
+            <article x-show="card().valid && !held()" class="overflow-hidden rounded-lg border border-rule bg-white">
+              <div x-show="verified && !failing() && card().checks_total && !abstained()" class="flex items-center gap-2 border-b border-rule bg-navy-50 px-6 py-2 text-[13px] text-navy-800">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                Verified: every quote and figure in this answer was found in the policy.
+              </div>
+              <div x-show="failing()" class="flex items-center gap-2 border-b border-red-100 bg-red-50/60 px-6 py-2 text-[13px] text-red-800">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+                <span x-text="`${card().checks_total - card().checks_passed} statement(s) below could not be found in the policy.`"></span>
+              </div>
+
+              <div class="flex items-start justify-between gap-4 px-6 pb-4 pt-6">
+                <div class="min-w-0">
+                  <p class="font-serif text-[26px] font-semibold leading-snug text-ink" x-text="card().verdict"></p>
+                  <span class="mt-2 inline-flex items-center gap-1.5 text-[13px]" :class="tone().text">
+                    <span class="h-2 w-2 rounded-full" :class="tone().dot"></span><span x-text="card().status_label"></span>
+                  </span>
+                </div>
+                <button @click="copy()" class="shrink-0 rounded-md border border-rule px-2.5 py-1 text-xs text-stone-500 transition hover:border-stone-400 hover:text-ink" x-text="copied ? 'Copied' : 'Copy'"></button>
+              </div>
+
+              <div class="space-y-7 px-6 pb-6">
+                <p class="text-[15px] leading-[1.7] text-stone-700" x-text="card().summary"></p>
+
+                <div x-show="card().requirements.length">
+                  <h3 class="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">Requirements</h3>
+                  <dl class="divide-y divide-rule border-y border-rule">
+                    <template x-for="r in card().requirements">
+                      <div class="flex items-start justify-between gap-4 py-3">
+                        <div><dt class="font-semibold text-ink" x-text="r.value"></dt><dd class="mt-0.5 text-sm text-stone-500"><span x-text="r.name"></span><span x-show="r.condition"> · <span x-text="r.condition"></span></span></dd></div>
+                        <span class="shrink-0 pt-0.5 text-[12px]" :class="r.verified ? 'text-stone-400' : 'font-semibold text-red-700'" x-text="r.verified ? 'In policy' : 'Not in policy'"></span>
+                      </div>
+                    </template>
+                  </dl>
+                </div>
+
+                <div x-show="card().citations.length">
+                  <h3 class="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400" x-text="abstained() ? 'Closest policy text found (it does not answer the question)' : 'From the policy'"></h3>
+                  <div class="space-y-4">
+                    <template x-for="c in card().citations">
+                      <figure class="border-l-2 pl-4" :class="abstained() ? 'border-rule' : (c.verified ? 'border-navy-300' : 'border-red-400')">
+                        <blockquote class="font-serif leading-relaxed" :class="abstained() ? 'text-[14px] text-stone-500' : 'text-[16px] text-stone-800'">“<span x-text="c.quote"></span>”</blockquote>
+                        <figcaption class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-stone-500">
+                          <span><span class="text-stone-700" x-text="c.doc"></span>, clause <span x-text="c.clause"></span></span>
+                          <span x-show="!abstained()" :class="c.verified ? 'text-stone-500' : 'font-semibold text-red-700'" x-text="c.verified ? '✓ matches the policy text' : '✗ not found in the policy'"></span>
+                          <button x-show="c.source !== null" @click="openSource(c.source)" class="text-navy-700 underline-offset-2 hover:underline">View in document</button>
+                        </figcaption>
+                      </figure>
+                    </template>
+                  </div>
+                </div>
+
+                <div x-show="card().gaps.length" class="border-l-2 border-amber-400 pl-4 text-sm text-stone-700">
+                  <span class="font-semibold text-ink">Not covered by the policy:</span> <span x-text="card().gaps.join('; ')"></span>
+                </div>
+              </div>
+
+              <footer class="flex flex-wrap items-center justify-between gap-3 border-t border-rule bg-paper px-6 py-3 text-xs text-stone-500">
+                <div class="flex items-center gap-2.5" x-show="card().checks_total">
+                  <div class="h-1 w-20 overflow-hidden rounded-full bg-rule"><div class="h-full transition-all duration-700" :class="failing() ? 'bg-red-600' : 'bg-navy-700'" :style="`width:${100 * card().checks_passed / card().checks_total}%`"></div></div>
+                  <span><b class="font-semibold text-stone-700" x-text="`${card().checks_passed} of ${card().checks_total}`"></b> claims found in the policy text</span>
+                </div>
+                <span x-show="!card().checks_total">No quotes or figures to check</span>
+                <span class="flex items-center gap-4">
+                  <span x-show="view === 'after'" x-text="`Answered in ${result.seconds}s`"></span>
+                  <button @click="openSource(0)" class="text-navy-700 underline-offset-2 hover:underline">Sources (<span x-text="result.sources.length"></span>)</button>
+                </span>
+              </footer>
+            </article>
+          </div>
+        </template>
+        <p x-show="view === 'before'" class="mt-3 text-center text-xs text-stone-400">The same question and policy clauses, answered by the model before training.</p>
+      </section>
+    </template>
+  </main>
+
+  <footer class="border-t border-rule py-6 text-center text-xs text-stone-400">Factualis Bank is fictional · Syntax Error 2026</footer>
+
+  <div x-show="drawer" x-cloak class="fixed inset-0 z-40">
+    <div x-show="drawer" x-transition.opacity class="absolute inset-0 bg-ink/20" @click="drawer = false"></div>
+    <aside x-show="drawer" x-transition:enter="transition duration-300 ease-out" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+      x-transition:leave="transition duration-200 ease-in" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
+      class="absolute right-0 top-0 flex h-full w-full max-w-xl flex-col border-l border-rule bg-white shadow-xl">
+      <div class="flex items-center justify-between border-b border-rule px-6 py-4">
+        <div><p class="font-serif text-lg font-semibold text-ink">Policy clauses used</p><p class="text-xs text-stone-500">Quoted text is highlighted</p></div>
+        <button @click="drawer = false" class="rounded-md p-1.5 text-stone-400 hover:text-ink" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="flex-1 space-y-4 overflow-y-auto bg-paper px-6 py-5">
+        <template x-for="(s, i) in (result ? result.sources : [])" :key="i">
+          <div :id="`src-${i}`" class="rounded-md border bg-white p-4 transition" :class="i === focus ? 'border-navy-500' : 'border-rule'">
+            <p class="mb-2 text-xs text-stone-500"><span class="font-semibold text-stone-800" x-text="s.doc"></span>, clause <span x-text="s.clause"></span></p>
+            <div class="clause font-serif text-[14px] leading-relaxed text-stone-800" x-html="s.html"></div>
+          </div>
+        </template>
+      </div>
+    </aside>
+  </div>
+
+<script>
+function factualis() {
+  return {
+    question: '', examples: [], verified: false, constrained: true, loading: false, result: null, error: '',
+    view: 'after', reveal: false, drawer: false, focus: null, copied: false, stage: 0, timer: null, toast: '', toastTimer: null,
+    library: [
+      { name: 'Wire Transfer & Sanctions SOP', kind: 'internal', about: 'Transfer limits, approvals, sanctions screening, high-risk countries, PEPs.' },
+      { name: 'Customer Due Diligence SOP', kind: 'internal', about: 'Risk categories, ID documents, video KYC, re-KYC periods, cash alerts.' },
+      { name: 'Employee Personal Dealing Policy', kind: 'internal', about: 'Trading window, pre-clearance, restricted list, penalties for staff.' },
+      { name: 'RBI KYC Master Direction', kind: 'regulation', about: 'Reserve Bank of India rules on customer identification and monitoring.' },
+      { name: 'PML (Maintenance of Records) Rules', kind: 'regulation', about: 'Record keeping and reporting to FIU-IND under the PML Act.' },
+      { name: 'SEBI Insider Trading Regulations', kind: 'regulation', about: 'Rules on unpublished price-sensitive information and trading plans.' },
+    ],
+    stages: ['Finding the relevant policy clauses', 'Reading 6 clauses', 'Writing the answer', 'Checking every quote against the policy'],
+    async init() {
+      try { this.examples = await (await fetch('/api/examples')).json(); } catch (e) {}
+      this.$watch('verified', on => {
+        this.reveal = false;
+        this.toast = on ? 'Verified mode on: answers with any unsupported statement are held for review.' : 'Verified mode off.';
+        clearTimeout(this.toastTimer); this.toastTimer = setTimeout(() => this.toast = '', 2600);
+      });
+      this.$nextTick(() => this.$refs.q.focus());
+    },
+    card() { return this.result ? (this.view === 'before' ? this.result.before_training : this.result.answer) : null; },
+    failing() { const c = this.card(); return !!(c && c.valid && c.checks_passed < c.checks_total); },
+    abstained() { const c = this.card(); return !!(c && c.status === 'ABSTAIN_NOT_IN_POLICY'); },
+    held() { return this.verified && this.failing() && !this.reveal; },
+    tone() {
+      const t = this.card() && this.card().tone;
+      return ({ ok: { text: 'text-emerald-800', dot: 'bg-emerald-600' }, warn: { text: 'text-amber-800', dot: 'bg-amber-500' },
+                none: { text: 'text-stone-600', dot: 'bg-stone-400' }, conflict: { text: 'text-violet-800', dot: 'bg-violet-600' } })[t]
+             || { text: 'text-stone-600', dot: 'bg-stone-400' };
+    },
+    async submit() {
+      const q = this.question.trim();
+      if (!q || this.loading) return;
+      this.loading = true; this.error = ''; this.result = null; this.view = 'after'; this.reveal = false; this.stage = 0;
+      const delays = [900, 1800, 16000];
+      let i = 0; const step = () => { if (i < delays.length) this.timer = setTimeout(() => { this.stage = ++i; step(); }, delays[i]); }; step();
+      try {
+        const r = await fetch('/api/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                                           body: JSON.stringify({ question: q, verified_mode: this.verified, constrained: this.constrained }) });
+        const data = await r.json();
+        if (!r.ok) throw new Error(data.error || 'Something went wrong.');
+        this.stage = 3; await new Promise(res => setTimeout(res, 450));
+        this.result = data;
+      } catch (e) { this.error = e.message || 'Could not reach the server.'; }
+      finally { clearTimeout(this.timer); this.loading = false; }
+    },
+    reset() { this.question = ''; this.result = null; this.error = ''; this.$refs.q.focus(); },
+    openSource(i) {
+      this.focus = i; this.drawer = true;
+      this.$nextTick(() => setTimeout(() => {
+        const el = document.getElementById(`src-${i}`);
+        const m = el && (el.querySelector('mark') || el);
+        if (m) m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 320));
+    },
+    copy() {
+      const c = this.card(); if (!c || !c.valid) return;
+      const lines = [c.verdict, '', c.summary, ...c.citations.map(x => `“${x.quote}” (${x.doc}, clause ${x.clause})`)];
+      navigator.clipboard.writeText(lines.join('\n')).then(() => { this.copied = true; setTimeout(() => this.copied = false, 1500); });
+    },
+  };
+}
+</script>
+</body>
+</html>

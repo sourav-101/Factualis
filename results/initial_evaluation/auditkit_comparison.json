@@ -1,0 +1,28 @@
+{
+  "fingerprints": {
+    "B_base_xgrammar": "d8804b7ffa2b77e7",
+    "D_aligned_xgrammar": "15f6da2115f23a2b"
+  },
+  "means": {
+    "B_base_xgrammar": {
+      "valid_json": 1.0,
+      "summary_present": 0.723404255319149,
+      "status_correct": 0.5,
+      "no_unsupported_claim": 0.851063829787234,
+      "quotes_verbatim": 0.9078014184397163,
+      "usable_correct": 0.20212765957446807,
+      "is_json": 1.0,
+      "summary_groundedness": 0.6793070998469203
+    },
+    "D_aligned_xgrammar": {
+      "valid_json": 0.9148936170212766,
+      "summary_present": 0.0,
+      "status_correct": 0.5,
+      "no_unsupported_claim": 0.6702127659574468,
+      "quotes_verbatim": 0.7978723404255319,
+      "usable_correct": 0.0,
+      "is_json": 0.9148936170212766,
+      "summary_groundedness": 0.9036290646326777
+    }
+  }
+}

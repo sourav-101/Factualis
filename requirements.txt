@@ -1,0 +1,12 @@
+sglang[all]
+curatorkit[all]
+aligntune
+auditkit[all]
+pydantic>=2.6
+openai>=1.40
+rank_bm25
+pypdf
+peft
+transformers
+fastapi
+uvicorn

@@ -1,0 +1,36 @@
+name: fincomp_adversarial_traps
+version: "1.0"
+
+llm:
+  model: openai/default
+  api_base: http://localhost:30000/v1
+  api_key: EMPTY
+  temperature: 0.9
+  max_tokens: 1024
+  concurrency: 16
+
+readers:
+  - type: jsonl
+    path: data/policy_clauses.jsonl
+
+normalizers:
+  - type: text_cleaner
+  - type: exact_dedup
+
+generators:
+  - type: adversarial_qa
+    num_questions: 2
+
+gates:
+  - type: schema
+    required_fields: [output]
+    min_tokens: 10
+    max_tokens: 4096
+
+exporters:
+  - type: messages
+
+output_split:
+  train: 0.9
+  val: 0.1
+  test: 0.0

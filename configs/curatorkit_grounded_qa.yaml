@@ -1,0 +1,45 @@
+name: fincomp_grounded_qa
+version: "1.0"
+
+llm:
+  model: openai/default
+  api_base: http://localhost:30000/v1
+  api_key: EMPTY
+  temperature: 0.7
+  max_tokens: 1024
+  concurrency: 16
+
+readers:
+  - type: jsonl
+    path: data/policy_clauses.jsonl
+
+normalizers:
+  - type: text_cleaner
+  - type: exact_dedup
+
+generators:
+  - type: qa
+    num_questions: 3
+    difficulty: hard
+
+gates:
+  - type: schema
+    required_fields: [output]
+    min_tokens: 20
+    max_tokens: 4096
+  - type: hallucination
+    hallucination_threshold: 0.7
+    hallucination_llm_model: openai/default
+  - type: reward
+    reward_threshold: 0.6
+    reward_dimensions: [helpfulness, honesty]
+    reward_llm_model: openai/default
+
+exporters:
+  - type: messages
+  - type: alpaca
+
+output_split:
+  train: 0.9
+  val: 0.1
+  test: 0.0
